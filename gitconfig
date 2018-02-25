@@ -1,0 +1,8 @@
+[color]
+	ui = true
+[user]
+	name = gkemmey
+	email = gray.kemmey@gmail.com
+[core]
+	editor = vim
+	
