@@ -4,7 +4,8 @@ desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
   Dir['*'].each do |file|
-    next if %w[Rakefile README.md LICENSE].include? file
+    # giving up on the vim / tmux thing for now
+    next if %w[Rakefile README.md LICENSE vimrc vim tmux.conf].include? file
 
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
       if replace_all

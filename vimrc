@@ -40,6 +40,7 @@ let g:elm_format_autosave = 1
 
 " Colors
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'rakr/vim-one'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,12 +57,12 @@ augroup myfiletypes
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
   autocmd FileType ruby,eruby,yaml setlocal path+=lib
-  autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
+  " autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
   " Make ?s part of words
   autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 
   " Clojure
-  autocmd FileType clojure setlocal colorcolumn=80
+  " autocmd FileType clojure setlocal colorcolumn=80
   autocmd FileType clojure map <Leader>t :!lein test<cr>
 augroup END
 
@@ -168,7 +169,8 @@ set autoread
 set wmh=0
 set viminfo+=!
 set guioptions-=T
-set guifont=Triskweline_10:h10
+" set guifont=Triskweline_10:h10
+set guifont=Monaco:h10
 set et
 set sw=2
 set smarttab
@@ -181,7 +183,11 @@ set gdefault " assume the /g flag on :s substitutions to replace all matches in 
 set autoindent " always set autoindenting on
 set lazyredraw " Don't redraw screen when running macros.
 
-colorscheme jellybeans
+" colorscheme jellybeans
+
+set termguicolors
+set background=light
+colorscheme one
 
 " Set the tag file search order
 set tags=./tags;
@@ -346,6 +352,7 @@ autocmd FileType qf setlocal wrap linebreak
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 " Make it more obviouser when lines are too long
+set colorcolumn=100
 highlight ColorColumn ctermbg=235
 
 " ========================================================================
