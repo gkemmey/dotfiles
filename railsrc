@@ -3,43 +3,49 @@
 ActiveRecord::Base.logger = Logger.new STDOUT
 ActionController::Base.logger = Logger.new STDOUT
 
-module Selector
-  extend self
+def find(klass, options={})
+  limit = options[:limit] || 1
+  after = options[:after] || 0
 
-  def find(klass, options={})
-    limit = options[:limit] || 1
-    after = options[:after] || 0
+  matches = []
 
-    matches = []
+  begin
+    record = klass.where("id > ?", after).first
+    after = record.try(:id)
 
-    begin
-      record = klass.where("id > ?", after).first
-      after = record.try(:id)
+    matches << record if yield record
+  end while record && matches.size < limit
 
-      matches << record if yield record
-    end while record && matches.size < limit
-
-    return limit == 1 ? matches.first : matches
-  end
-
-  def random_ids(klass, options={})
-    size = options[:size] || 100
-
-    ids = []
-    count = klass.count
-    runs = 0
-
-    while ids.length < size
-      begin
-        rand_id = rand(count)
-        rand_id += (count / 2) if runs == size # check the higher end of the database if we're not done
-        id = klass.where("id >= ?", rand_id).first.id
-      end while ids.include? instance.id
-
-      ids << id
-      runs += 1
-    end
-
-    ids
-  end
+  return limit == 1 ? matches.first : matches
 end
+
+def random_ids(klass, options={})
+  size = options[:size] || 100
+
+  ids = []
+  count = klass.count
+  runs = 0
+
+  while ids.length < size
+    begin
+      rand_id = rand(count)
+      rand_id += (count / 2) if runs == size # check the higher end of the database if we're not done
+      id = klass.where("id >= ?", rand_id).first.id
+    end while ids.include? id
+
+    ids << id
+    runs += 1
+  end
+
+  ids
+end
+
+def set_user(variable, email, should_reload = false)
+  instance_variable_set(variable, nil) if should_reload
+  instance_variable_set(variable, instance_variable_get(variable) || User.find_by_email(email))
+end
+
+def gray(options = {})
+  set_user(:@gray, "gray.kemmey@gmail.com", options[:reload])
+end
+alias me gray
