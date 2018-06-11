@@ -40,13 +40,8 @@ def random_ids(klass, options={})
   ids
 end
 
-def set_user(variable, email, should_reload = false)
-  instance_variable_set(variable, nil) if should_reload
-  instance_variable_set(variable, instance_variable_get(variable) || User.find_by_email(email))
-end
-
-def gray(options = {})
-  set_user(:@gray, "gray.kemmey@gmail.com", options[:reload])
+def gray
+  User.find_by_email(email)
 end
 
 def me(*args)

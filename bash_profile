@@ -12,6 +12,9 @@ alias hints='tmp_f() { URL_PARAM=$(echo "$@" | sed "s/ /-/g"); lynx -accept_all_
 alias search='tmp_f() { URL_PARAM=$(echo "$@" | sed "s/ /+/g"); lynx -accept_all_cookies https://duckduckgo.com/lite/?q="$URL_PARAM"; unset -f tmp_f; }; tmp_f'
 alias spell='search'
 
+alias todo='atom -n ~/Desktop/notes.md'
+alias notes='atom -n ~/Desktop/notes.md'
+
 function forever {
   # $($1 ${@:2}) == use the first argument as a command and just pass along everything else
   # \033c == ansi escape code to clear the screen
