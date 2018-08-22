@@ -15,10 +15,22 @@ alias spell='search'
 alias todo='atom -n ~/Desktop/notes.md'
 alias notes='atom -n ~/Desktop/notes.md'
 
+# get pids from process search
+# ps -ef | grep KEYWORD | grep -v grep | awk '{print $2}'
+# and to delete them
+# ps -ef | grep KEYWORD | grep -v grep | awk '{print $2}' | xargs kill -9
+
 function forever {
   # $($1 ${@:2}) == use the first argument as a command and just pass along everything else
   # \033c == ansi escape code to clear the screen
   while true; do echo -e "\033c$($1 ${@:2})"; sleep 2; done;
+}
+
+function slack_emoji {
+  target="${2:-thinking_face}"
+  spacer="${3:-white_square}" # saw examples with blank, that would be cooler, doesn't seem to work in slack
+
+  figlet -f banner $1 | sed -e "s/#/:$target:/g" | sed -e "s/ /:$spacer:/g"
 }
 
 alias start_pushing_images_to_minikube='eval $(minikube docker-env)'
