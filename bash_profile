@@ -7,6 +7,7 @@ alias php_permissions='sudo chmod -R a+w .'
 alias disk_space='sudo du -a | sort -n -r | head -n 25' # run in /, shows 25 largest files
 alias folder_space='sudo du -sh *' # shows top-level folder and file sizes where run
 alias check_dns='scutil --dns'
+alias docker_host_ip='ipconfig getifaddr en0'
 
 alias hints='tmp_f() { URL_PARAM=$(echo "$@" | sed "s/ /-/g"); lynx -accept_all_cookies https://devhints.io/"$URL_PARAM"; unset -f tmp_f; }; tmp_f'
 alias search='tmp_f() { URL_PARAM=$(echo "$@" | sed "s/ /+/g"); lynx -accept_all_cookies https://duckduckgo.com/lite/?q="$URL_PARAM"; unset -f tmp_f; }; tmp_f'
@@ -46,6 +47,10 @@ alias files_by_lines_of_code='find . \( -path ./node_modules -o -path ./tmp -o -
 
 alias console='bundle exec rails console'
 alias server='bundle exec rails server'
+alias test_multiple='bundle exec ruby -I.:test -e "ARGV.each { |f| require f }"'
+function test_multiple {
+  bundle exec ruby -I.:test -e "ARGV.each { |f| require f }" ${@:1}
+}
 alias jekyll='bundle exec jekyll serve'
 
 # stolen from: http://stackoverflow.com/questions/3108395/serve-current-directory-from-command-line
