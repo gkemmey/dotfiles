@@ -68,6 +68,10 @@ fi
 #
 export PATH="$PATH:/usr/local/sbin"
 
+# -------- ASDF --------
+source ~/.asdf/asdf.sh
+# source ~/.asdf/completions/asdf.bash
+
 # -------- secret bash profile (not committed to dotfiles repo) --------
 if [ -f ~/.bash_secret_profile ]; then
   source ~/.bash_secret_profile
