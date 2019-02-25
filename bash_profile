@@ -45,6 +45,7 @@ alias lines_of_code='find . \( -path ./node_modules -o -path ./tmp -o -iname "*_
 # alias files_by_lines_of_code='find . -iname "*.rb" -type f -exec wc -l {} \; | sort -rn'
 alias files_by_lines_of_code='find . \( -path ./node_modules -o -path ./tmp -o -iname "*_bundle.js" -o -iname "*schema.rb" \) -prune -o \( -iname "*.rb" -o -iname "*.js" -o -iname "*.jsx" \) -type f -exec wc -l {} \; | sort -rn'
 
+alias be='bundle exec'
 alias console='bundle exec rails console'
 alias server='bundle exec rails server'
 alias test_multiple='bundle exec ruby -I.:test -e "ARGV.each { |f| require f }"'
