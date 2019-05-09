@@ -1,7 +1,7 @@
 # -------- CHRUBY --------
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
-chruby ruby-2.4.0
+chruby ruby-2.6.2
 
 # go home && go back && verify ruby-version auto selected
 alias chset='cd && cd ~- && chruby'
@@ -71,6 +71,9 @@ export PATH="$PATH:/usr/local/sbin"
 # -------- ASDF --------
 source ~/.asdf/asdf.sh
 # source ~/.asdf/completions/asdf.bash
+
+# -------- GO --------
+export PATH="$PATH:$(go env GOPATH)/bin:$(go env GOROOT)/bin"
 
 # -------- secret bash profile (not committed to dotfiles repo) --------
 if [ -f ~/.bash_secret_profile ]; then

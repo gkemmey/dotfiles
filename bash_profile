@@ -16,6 +16,8 @@ alias spell='search'
 alias todo='atom -n ~/Desktop/notes.md'
 alias notes='atom -n ~/Desktop/notes.md'
 
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
 # get pids from process search
 # ps -ef | grep KEYWORD | grep -v grep | awk '{print $2}'
 # and to delete them
@@ -25,6 +27,16 @@ function forever {
   # $($1 ${@:2}) == use the first argument as a command and just pass along everything else
   # \033c == ansi escape code to clear the screen
   while true; do echo -e "\033c$($1 ${@:2})"; sleep 2; done;
+}
+
+# stolen from: https://stackoverflow.com/a/33844061/1947079
+function capture {
+  sudo dtrace -p "$1" -qn '
+    syscall::write*:entry
+    /pid == $target && arg0 == 1/ {
+      printf("%s", copyinstr(arg1, arg2));
+    }
+  '
 }
 
 function slack_emoji {
@@ -65,6 +77,11 @@ alias pr_gif="ffmpeg -i ~/Desktop/screen_cap.mov -vf scale=600:-1 -r 10 -f image
 # stolen from: http://stackoverflow.com/questions/13064613/how-to-prune-local-tracking-branches-that-do-not-exist-on-remote-anymore
 function clean_branches {
   git branch -r | awk '{ print $1 }'| egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{ print $1 }' | xargs git branch -d
+}
+
+# stolen from: https://stackoverflow.com/questions/9146012/how-do-i-list-all-versions-of-a-gem-available-at-a-remote-site
+function gem_versions {
+  gem search ^$1$ --pre --all | grep -o '\((.*)\)$' | tr -d '() ' | tr ',' "\n"
 }
 
 if [ -f ~/.bashrc ]; then
