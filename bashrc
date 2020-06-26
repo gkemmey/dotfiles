@@ -1,7 +1,7 @@
 # -------- CHRUBY --------
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
-chruby ruby-2.6.2
+chruby ruby-2.7.0
 
 # go home && go back && verify ruby-version auto selected
 alias chset='cd && cd ~- && chruby'
