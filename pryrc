@@ -1,6 +1,5 @@
 #!/usr/bin/ruby
 
-# i don't use pryrc, unless a project already is, so just copy .irbrc file
 irbrc_parth = File.expand_path('~/.irbrc')
 begin
   load irbrc_parth

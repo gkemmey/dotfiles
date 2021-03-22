@@ -4,5 +4,4 @@
 	name = gkemmey
 	email = gray.kemmey@gmail.com
 [core]
-	editor = vim
-	
+	editor = code --wait

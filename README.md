@@ -1,12 +1,19 @@
-Largely stolen from [Ben Orenstein's dot files](https://github.com/r00k/dotfiles), but tuned to me enough that I didn't want to fork.
-
 ## Installation
 
-  `git clone git://github.com/gkemmey/dotfiles ~/.dotfiles`  
-  `cd ~/.dotfiles`  
-  `rake install`
+`git clone git://github.com/gkemmey/dotfiles ~/.dotfiles`
+`cd ~/.dotfiles`
+`rake install`
 
-  Vim plugins are managed through vundle. You'll need to install vundle to get them.
+## VS Code
 
-  `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`  
-  Run :BundleInstall in vim.
+#### Save installed extensions
+
+`rake sync:code:extensions`
+
+## TODO
+
+- [ ] automatically download oh-my-zsh plugins into `~/.oh-my-zsh/custom` from a manifest file
+- [ ] same for terminal themes to `.terminal`
+- [ ] how to track homebrew setup? homebrew offers something for this, i think
+- [ ] change ~/.vscode/argv.json `enable-crash-reporter` to false
+- [ ] vscode: set ignored extensions

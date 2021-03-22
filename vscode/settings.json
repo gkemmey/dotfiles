@@ -1,0 +1,184 @@
+{
+  // -------- (caleb's) better defaults --------
+  "editor.copyWithSyntaxHighlighting": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.emptySelectionClipboard": false,
+  "workbench.editor.enablePreview": true, // i'm gonna keep this
+  "window.newWindowDimensions": "inherit",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "files.trimTrailingWhitespace": true,
+  "diffEditor.renderSideBySide": false,
+  "editor.snippetSuggestions": "top",
+  "editor.detectIndentation": false,
+  "window.nativeFullScreen": false,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  // -------- (my) better defaults --------
+  "telemetry.enableTelemetry": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.scrollBeyondLastLine": false,
+  "workbench.sideBar.location": "left",
+  "workbench.statusBar.visible": true, // i'm gonna keep it
+  "workbench.editor.showTabs": true,
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "on", // i'm gonna keep 'em
+
+  // -------- (caleb's) silence the noise ---------
+  "breadcrumbs.enabled": false,
+  "scm.diffDecorations": "gutter", // i'm gonna put 'em in the gutter
+  // "editor.hover.enabled": false,
+  // "editor.matchBrackets": "never",
+  "workbench.tips.enabled": false,
+  "editor.colorDecorators": false,
+  "git.decorations.enabled": true, // i'm gonna keep in the explorer
+  "workbench.startupEditor": "none",
+  "editor.lightbulb.enabled": false,
+  "editor.selectionHighlight": true, // i'm gonna keep this
+  "editor.overviewRulerBorder": false,
+  "editor.renderLineHighlight":"none",
+  "editor.occurrencesHighlight": false,
+  "problems.decorations.enabled": false,
+  "editor.renderControlCharacters": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "workbench.editor.enablePreviewFromQuickOpen": true, // i'm gonna keep this
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
+
+  // --------- (caleb's) code --------
+  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+
+  // ---- (caleb's) prettier -----
+  "prettier.requireConfig": true,
+  "prettier.useEditorConfig": false,
+  "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[java]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+
+  // --------- (my) code --------
+  "emmet.includeLanguages": {
+    "html": "html",
+    "erb": "erb",
+    "javascript": "javascriptreact",
+  },
+  "editor.rulers": [
+    80,
+    100
+  ],
+  "workbench.colorCustomizations": {
+    "scrollbar.shadow": "#282A36", // this has to be matched to the theme
+    "sideBar.background": "#282A36",
+    "statusBar.background": "#282A36",
+    "editorLineNumber.foreground": "#C6C6C6",
+    "gitDecoration.modifiedResourceForeground": "#FFB86C",
+    "gitDecoration.deletedResourceForeground": "#FF5555",
+    "gitDecoration.untrackedResourceForeground": "#50FA7B",
+    "editorGutter.modifiedBackground": "#FFB86C",
+    "editorGutter.deletedBackground": "#FF5555",
+    "editorGutter.addedBackground": "#50FA7B",
+
+    "editorGroupHeader.tabsBackground": "#282A36",
+    "tab.inactiveBackground": "#282A36",
+    "tab.inactiveForeground": "#F8F8F2",
+    "tab.activeForeground": "#F8F8F2",
+    "tab.activeBackground": "#343746",
+  },
+  "editor.fontFamily": "Monaco",
+  "editor.fontSize": 10,
+  "editor.suggestFontSize": 10,
+  "terminal.integrated.fontSize": 10,
+  "workbench.tree.indent": 16,
+
+  // --------- themeing that relies on customizeUI extension --------
+  // vs code doesn't give you access to the font in various windows like the
+  // explorer. customizeUI will make it so any monospaced font vs code would
+  // have used gets set to to this value using the --monoaco-monospace-font
+  // variable.
+  //
+  // note: the duped monaco class names + monaco font is confusing. they're
+  // not related. vs code's editor is from microfosft's in-browser editor
+  // called 'monaco'.
+  "customizeUI.font.monospace": "Monaco",
+  "customizeUI.fontSizeMap": {
+    "monospace": "11px",
+    "13px": "11px",
+  },
+
+  // (caleb's) native title bar
+  // "window.titleBarStyle": "custom",
+  // "customizeUI.titleBar": "frameless",
+  "customizeUI.stylesheet": {
+      // ".editor .title": "background: transparent !important;",
+
+      // hides top-right buttons
+      // ".editor .title .actions-container li.action-item a": "visibility: hidden;",
+
+      // put back close icons though. they show saved status, and just wanna be able to close
+      // ".editor .title .actions-container .action-item a[title=\"Close (⌘W)\"]": "visibility: initial;",
+      // ".editor .title .actions-container .action-item a[title=\"Close (⌃Q)\"]": "visibility: initial;",
+
+      // a desparate attempt to make the close icon last (so it's pulled all the way to the right).
+      // this was the last button and close was second to last. not destined to work forever.
+      // ".editor .title .actions-container .action-item a[title=\"More Actions...\"]": "display: none !important;",
+
+      "div.editor-actions": "display: none !important;",
+
+
+      // hide the scroll bar. TODO - it'd be nice to show it when scrolling, dunno how to though.
+      ".editor .scrollbar .slider": "visibility: hidden",
+      ".editor .scrollbar:hover .slider": "visibility: initial",
+
+      // sets file explorer to use monospace font
+      ".explorer-viewlet .explorer-folders-view .monaco-highlighted-label": "font-family: var(--monaco-monospace-font) !important;",
+      // sets search to use monospace font (mostly, some headings / "open in editor" not included)
+      ".search-view .input, .search-view .match, .search-view .filematch": "font-family: var(--monaco-monospace-font) !important;"
+
+      // cool trick from caleb's book i might use once i decide what colors i like
+      // ".monaco-editor .cursor": "background: linear-gradient(to bottom, #7f00ff, #e100ff) !important; color: #292D3E !important"
+  },
+  "breadcrumbs.symbolPath": "off",
+  "workbench.activityBar.visible": false,
+  "tailwindCSS.includeLanguages": {
+    "erb": "html"
+  },
+  "color-highlight.markRuler": false,
+  "customizeUI.titleBar": "inline",
+  "editor.find.addExtraSpaceOnTop": false,
+  "explorer.autoReveal": false,
+  "window.titleBarStyle": "native",
+  "tailwindCSS.colorDecorators": "on",
+  "editor.acceptSuggestionOnEnter": "off",
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext"
+  ],
+  "spellright.addToSystemDictionary": true,
+  "customWindowZoom.zoomLevelChangeValue": 0.25,
+  "workbench.list.horizontalScrolling": true,
+  "workbench.colorTheme": "Dracula",
+  "emojisense.markupCompletionsEnabled": false,
+  "terminal.integrated.shell.osx": "zsh",
+}
