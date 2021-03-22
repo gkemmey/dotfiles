@@ -1,12 +1,12 @@
 ## Installation
 
-`git clone git://github.com/gkemmey/dotfiles ~/.dotfiles`
-`cd ~/.dotfiles`
-`rake install`
+1. `git clone git@github.com:gkemmey/dotfiles.git ~/.dotfiles`
+2. `cd ~/.dotfiles`
+3. `rake install`
 
 ## VS Code
 
-#### Save installed extensions
+### Save installed extensions
 
 `rake sync:code:extensions`
 
