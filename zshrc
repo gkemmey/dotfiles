@@ -120,14 +120,8 @@ source $ZSH/oh-my-zsh.sh
 alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
 alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
 
-# -------- asdf ---------
-source /opt/homebrew/opt/asdf/asdf.sh
-
 # -------- chruby --------
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.0.0
-
 alias chset='cd && cd ~- && chruby' # go home && go back && verify ruby-version auto selected
 
 # -------- gifs --------
@@ -211,3 +205,11 @@ function forever {
 function grep_kill {
   ps -ef | grep "$1" | grep -v grep | awk '{print $2}' | xargs kill -9
 }
+
+function find_port {
+  netstat -vanp tcp | grep -E "(pid|$1)"
+}
+
+if [ -f ~/.zprofile ]; then
+  source ~/.zprofile
+fi
