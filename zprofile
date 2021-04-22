@@ -11,3 +11,9 @@ source /opt/homebrew/opt/asdf/asdf.sh
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby 3.0.0
+
+# -------- python --------
+eval "$(pyenv init - --no-rehash)"
+eval "$(pyenv virtualenv-init -)"
+export PATH="$PATH:/Users/graykemmey/.local/bin"
+export PIP_REQUIRE_VIRTUALENV=true

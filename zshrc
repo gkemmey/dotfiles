@@ -10,6 +10,7 @@ export ZSH="/Users/graykemmey/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="dracula"
 DRACULA_ARROW_ICON=">>"
+RPROMPT='%F{magenta}%B$(virtualenv_prompt_info)%f%b'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -113,6 +114,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# custom `virtualenv_prompt_info` i can set in `RPROMPT` that only outputs anything if
+# a virtualenv is set. turns off `pyenv-virtualenv`'s default prompt mangling.
+# ref: https://github.com/pyenv/pyenv-virtualenv/blob/master/bin/pyenv-sh-activate#L214-L234
+# ref: https://github.com/pyenv/pyenv-virtualenv/blob/master/bin/pyenv-virtualenv-init#L149-L152
+#
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+virtualenv_prompt_info() {
+  if [ -n "$VIRTUAL_ENV" ]; then
+    echo "($(pyenv version-name))"
+  fi
+}
 
 # -------- ☝️ oh-my-zsh setups --------
 
