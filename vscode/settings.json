@@ -3,7 +3,7 @@
   "editor.copyWithSyntaxHighlighting": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.emptySelectionClipboard": false,
-  "workbench.editor.enablePreview": true, // i'm gonna keep this
+  "workbench.editor.enablePreview": false,
   "window.newWindowDimensions": "inherit",
   "editor.multiCursorModifier": "ctrlCmd",
   "files.trimTrailingWhitespace": true,
@@ -45,7 +45,7 @@
   "editor.gotoLocation.multipleReferences": "goto",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.gotoLocation.multipleDeclarations": "goto",
-  "workbench.editor.enablePreviewFromQuickOpen": true, // i'm gonna keep this
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "editor.gotoLocation.multipleImplementations": "goto",
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
@@ -189,4 +189,5 @@
     "markdown"
   ],
   "workbench.activityBar.visible": false,
+  "workbench.list.openMode": "doubleClick"
 }
