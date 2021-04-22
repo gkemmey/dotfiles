@@ -121,7 +121,6 @@ alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
 alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
 
 # -------- chruby --------
-chruby ruby-3.0.0
 alias chset='cd && cd ~- && chruby' # go home && go back && verify ruby-version auto selected
 
 # -------- gifs --------

@@ -1,9 +1,13 @@
+# -------- homebrew --------
+# gotta be first. it adds everything homebrew installed to path, but subsequent tools need to
+# prepend their paths before homebrew's. for example, homebrew will add node, and we need asdf
+# to add it's shim stuffs on top.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # -------- asdf ---------
 source /opt/homebrew/opt/asdf/asdf.sh
 
 # -------- chruby --------
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-
-# -------- homebrew --------
-eval "$(/opt/homebrew/bin/brew shellenv)"
+chruby 3.0.0
