@@ -10,7 +10,8 @@ source /opt/homebrew/opt/asdf/asdf.sh
 # -------- chruby --------
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby 3.0.0
+chruby 3.0.0 # set a default to avoid system ruby
+cd && cd ~-  # go home && come back to make chruby init itself form any .ruby-version files
 
 # -------- python --------
 eval "$(pyenv init - --no-rehash)"

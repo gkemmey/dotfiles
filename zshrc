@@ -160,13 +160,12 @@ alias js='bundle exec jekyll serve'
 alias pgs="postgres -D /opt/homebrew/var/postgres"
 
 # -------- "org mode" --------
-alias notes='code -n ~/Desktop/notes.md'
-alias scratchpad='code -n ~/Desktop/scratchpad.md'
-alias todo='code -n ~/Desktop/todo.md'
+alias notes='code --disable-workspace-trust -n ~/Desktop/notes.md'
+alias scratchpad='code --disable-workspace-trust -n ~/Desktop/scratchpad.md'
+alias todo='code --disable-workspace-trust -n ~/Desktop/todo.md'
 
 # -------- ruby / rails --------
 alias beq='RUBYOPT="-W:no-deprecated -W:no-experimental" bundle exec'
-alias chset='cd && cd ~- && chruby' # go home && go back && verify ruby-version auto selected
 alias credentials='EDITOR="atom -n --wait" bundle exec rails credentials:edit'
 
 # stolen from: https://stackoverflow.com/questions/9146012/how-do-i-list-all-versions-of-a-gem-available-at-a-remote-site
@@ -220,6 +219,13 @@ function grep_kill {
 
 function find_port {
   netstat -vanp tcp | grep -E "(pid|$1)"
+}
+
+# works with curl request like
+# `curl -X POST -i -d '{}' -H "Content-Type: application/json" http://example.com | rb_json_pp`
+# to print status code and pretty printed json
+function rb_json_pp {
+  ruby -rjson -e 'ARGF.read.lines.map(&:chomp).then { puts(_1.first); puts(JSON.pretty_generate(JSON.parse(_1.last))) }'
 }
 
 if [ -f ~/.zprofile ]; then

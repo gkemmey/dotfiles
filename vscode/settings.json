@@ -51,9 +51,6 @@
 
   // --------- (caleb's) code --------
   "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
-
-  // ---- (caleb's) prettier -----
-  "prettier.requireConfig": true,
   "prettier.useEditorConfig": false,
   "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -87,23 +84,32 @@
     100,
     120
   ],
+  // -------- for dracula --------
+  // slack: #282A36,#44475A,#44475A,#8BE9FD,#6272A4,#FFFFFF,#50FA7B,#FF5555,#282A36,#FFFFFF
+  // "workbench.colorCustomizations": {
+  //   "editorGroupHeader.tabsBackground": "#282A36",
+  //   "editorGutter.addedBackground": "#50FA7B",
+  //   "editorGutter.deletedBackground": "#FF5555",
+  //   "editorGutter.modifiedBackground": "#FFB86C",
+  //   "editorLineNumber.foreground": "#C6C6C6",
+  //   "gitDecoration.deletedResourceForeground": "#FF5555",
+  //   "gitDecoration.modifiedResourceForeground": "#FFB86C",
+  //   "gitDecoration.untrackedResourceForeground": "#50FA7B",
+  //   "scrollbar.shadow": "#282A36", // this has to be matched to the theme
+  //   "sideBar.background": "#282A36",
+  //   "statusBar.background": "#282A36",
+  //   "tab.activeBackground": "#343746",
+  //   "tab.activeForeground": "#F8F8F2",
+  //   "tab.inactiveBackground": "#282A36",
+  //   "tab.inactiveForeground": "#F8F8F2",
+  //   "terminal.background" : "#282A36",
+  // },
+  // --------- github -------
+  // slack: #F6F8FA,#F8F8FA,#0969DA,#FFFFFF,#FFFFFF,#24292F,#1A7F37,#CF222E,#F6F8FA,#24292F
   "workbench.colorCustomizations": {
-    "scrollbar.shadow": "#282A36", // this has to be matched to the theme
-    "sideBar.background": "#282A36",
-    "statusBar.background": "#282A36",
-    "editorLineNumber.foreground": "#C6C6C6",
-    "gitDecoration.modifiedResourceForeground": "#FFB86C",
-    "gitDecoration.deletedResourceForeground": "#FF5555",
-    "gitDecoration.untrackedResourceForeground": "#50FA7B",
-    "editorGutter.modifiedBackground": "#FFB86C",
-    "editorGutter.deletedBackground": "#FF5555",
-    "editorGutter.addedBackground": "#50FA7B",
-
-    "editorGroupHeader.tabsBackground": "#282A36",
-    "tab.inactiveBackground": "#282A36",
-    "tab.inactiveForeground": "#F8F8F2",
-    "tab.activeForeground": "#F8F8F2",
-    "tab.activeBackground": "#343746",
+    // "tab.inactiveBackground": "#FFFFFF",
+    "terminal.background": "#FFFFFF",
+    "panel.background": "#FFFFFF"
   },
   "editor.fontFamily": "Monaco",
   "editor.fontSize": 10,
@@ -167,7 +173,7 @@
   "editor.find.addExtraSpaceOnTop": false,
   "explorer.autoReveal": false,
   "window.titleBarStyle": "native",
-  "tailwindCSS.colorDecorators": "on",
+  "tailwindCSS.colorDecorators": true,
   "editor.acceptSuggestionOnEnter": "off",
   "typescript.updateImportsOnFileMove.enabled": "prompt",
   "spellright.documentTypes": [
@@ -178,9 +184,8 @@
   "spellright.addToSystemDictionary": true,
   "customWindowZoom.zoomLevelChangeValue": 0.25,
   "workbench.list.horizontalScrolling": true,
-  "workbench.colorTheme": "Dracula",
   "emojisense.markupCompletionsEnabled": false,
-  "terminal.integrated.shell.osx": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
   "wordcounter.side.left": [
     "word",
     "char"
@@ -189,5 +194,30 @@
     "markdown"
   ],
   "workbench.activityBar.visible": false,
-  "workbench.list.openMode": "doubleClick"
+  "workbench.list.openMode": "doubleClick",
+  "terminal.integrated.scrollback": 100000,
+  "extensions.ignoreRecommendations": true,
+  "markdown-pdf.headerTemplate": "<div style=\"display: none;\"></div>",
+  "markdown-pdf.format": "A2",
+  "markdown-pdf.orientation": "landscape",
+  "markdown-pdf.styles": [
+    "/Users/graykemmey/.vscode/custom/markdown_pdf_themes/github-markdown.css"
+  ],
+  "markdown-pdf.includeDefaultStyles": false,
+  "workbench.colorTheme": "GitHub Light Default",
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "prettier.requireConfig": true,
+  "emojisense.languages": {
+    "git-commit": true,
+    "markdown": true,
+    "plaintext": {
+      "markupCompletionsEnabled": false,
+      "emojiDecoratorsEnabled": false
+    },
+    "scminput": true,
+    "ruby": true
+  },
+  "editor.maxTokenizationLineLength": 200000,
+  "editor.scrollBeyondLastColumn": 0
 }
