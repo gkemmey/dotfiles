@@ -105,11 +105,20 @@
   //   "terminal.background" : "#282A36",
   // },
   // --------- github -------
-  // slack: #F6F8FA,#F8F8FA,#0969DA,#FFFFFF,#FFFFFF,#24292F,#1A7F37,#CF222E,#F6F8FA,#24292F
+  // slack: #F6F8FA,#F8F8FA,#0969DA,#FFFFFF,#0366D625,#24292F,#1A7F37,#CF222E,#F6F8FA,#24292F
+  // "workbench.colorCustomizations": {
+    // "terminal.background": "#FFFFFF",
+    // "panel.background": "#FFFFFF"
+  // },
+  // --------- nord --------
+  // slack: #2E3440,#3B4252,#88C0D0,#2E3440,#3B4252,#D8DEE9,#A3BE8C,#81A1C1,#3B4252,#D8DEE9
+  // "workbench.colorCustomizations": {
+  //   "editorGroup.border": "#3b4252"
+  // },
+  // --------- gray matter --------
   "workbench.colorCustomizations": {
-    // "tab.inactiveBackground": "#FFFFFF",
-    "terminal.background": "#FFFFFF",
-    "panel.background": "#FFFFFF"
+    "editorGroup.border": "#f9a8d4",
+    "terminal.ansiCyan": "#be185d", /* ruby 3.1 has a drop down w/ white text. gotta change this to make it legible. */
   },
   "editor.fontFamily": "Monaco",
   "editor.fontSize": 10,
@@ -176,15 +185,8 @@
   "tailwindCSS.colorDecorators": true,
   "editor.acceptSuggestionOnEnter": "off",
   "typescript.updateImportsOnFileMove.enabled": "prompt",
-  "spellright.documentTypes": [
-    "markdown",
-    "latex",
-    "plaintext"
-  ],
-  "spellright.addToSystemDictionary": true,
   "customWindowZoom.zoomLevelChangeValue": 0.25,
   "workbench.list.horizontalScrolling": true,
-  "emojisense.markupCompletionsEnabled": false,
   "terminal.integrated.defaultProfile.osx": "zsh",
   "wordcounter.side.left": [
     "word",
@@ -204,11 +206,12 @@
     "/Users/graykemmey/.vscode/custom/markdown_pdf_themes/github-markdown.css"
   ],
   "markdown-pdf.includeDefaultStyles": false,
-  "workbench.colorTheme": "GitHub Light Default",
+  "workbench.colorTheme": "Gray Matter",
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "prettier.requireConfig": true,
   "emojisense.languages": {
+
     "git-commit": true,
     "markdown": true,
     "plaintext": {
@@ -216,8 +219,39 @@
       "emojiDecoratorsEnabled": false
     },
     "scminput": true,
-    "ruby": true
+    "ruby": {
+      "emojiDecoratorsEnabled": false
+    }
   },
   "editor.maxTokenizationLineLength": 200000,
-  "editor.scrollBeyondLastColumn": 0
+  "editor.scrollBeyondLastColumn": 0,
+  "emojisense.markupCompletionsEnabled": false,
+  "terminal.integrated.cursorBlinking": true,
+  "cSpell.diagnosticLevel": "Error",
+  "cSpell.enabledLanguageIds": [],
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders",
+    "Gemfile.lock",
+    "yarn.lock"
+  ],
+  "cSpell.enableFiletypes": [
+    "!javascript",
+    "!javascriptreact",
+    "!json",
+    "!less",
+    "!ruby",
+    "!typescript",
+    "!typescriptreact",
+    "git-commit",
+    "git-rebase",
+    "latex",
+    "markdown",
+    "plaintext"
+  ],
+  "editor.unicodeHighlight.invisibleCharacters": false,
 }

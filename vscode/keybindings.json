@@ -276,5 +276,10 @@
   {
     "key": "cmd+8",
     "command": "-extension.customWindowZoomOut"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
   }
 ]

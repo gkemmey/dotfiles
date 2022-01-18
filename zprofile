@@ -10,8 +10,14 @@ source /opt/homebrew/opt/asdf/asdf.sh
 # -------- chruby --------
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby 3.0.0 # set a default to avoid system ruby
+chruby 3.1.0 # set a default to avoid system ruby
 cd && cd ~-  # go home && come back to make chruby init itself form any .ruby-version files
+
+# -------- java (asdf-java) --------
+# ref: https://github.com/halcyon/asdf-java
+if [ -n "$ZSH_VERSION" ]; then
+  source ~/.asdf/plugins/java/set-java-home.zsh
+fi
 
 # -------- python --------
 eval "$(pyenv init - --no-rehash)"
