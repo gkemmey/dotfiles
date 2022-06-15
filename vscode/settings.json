@@ -105,10 +105,10 @@
   //   "terminal.background" : "#282A36",
   // },
   // --------- github -------
-  // slack: #F6F8FA,#F8F8FA,#0969DA,#FFFFFF,#0366D625,#24292F,#1A7F37,#CF222E,#F6F8FA,#24292F
+  // // slack: #F6F8FA,#F8F8FA,#0969DA,#FFFFFF,#0366D625,#24292F,#1A7F37,#CF222E,#F6F8FA,#24292F
   // "workbench.colorCustomizations": {
-    // "terminal.background": "#FFFFFF",
-    // "panel.background": "#FFFFFF"
+  //   "terminal.background": "#FFFFFF",
+  //   "panel.background": "#FFFFFF"
   // },
   // --------- nord --------
   // slack: #2E3440,#3B4252,#88C0D0,#2E3440,#3B4252,#D8DEE9,#A3BE8C,#81A1C1,#3B4252,#D8DEE9
@@ -116,9 +116,30 @@
   //   "editorGroup.border": "#3b4252"
   // },
   // --------- gray matter --------
+  // "workbench.colorCustomizations": {
+  //   "editorGroup.border": "#f9a8d4",
+  //   "terminal.ansiCyan": "#be185d", /* ruby 3.1 has a drop down w/ white text. gotta change this to make it legible. */
+  // },
+  // -------- light+ --------
+  // "workbench.colorCustomizations": {
+  //   "editorGutter.addedBackground": "#098658",
+  //   "editorGutter.deletedBackground": "#CD3131",
+  //   "editorGutter.modifiedBackground": "#CD9731",
+  //   "gitDecoration.deletedResourceForeground": "#CD3131",
+  //   "gitDecoration.modifiedResourceForeground": "#CD9731",
+  //   "gitDecoration.untrackedResourceForeground": "#098658",
+  // },
+  // -------- light owl --------
+  // slack: #F0F0F0,#F8F8FA,#288ED7,#FFFFFF,#7497A633,#403F53,#08916A,#DE3D3B,#F0F0F0,#403F53
   "workbench.colorCustomizations": {
-    "editorGroup.border": "#f9a8d4",
-    "terminal.ansiCyan": "#be185d", /* ruby 3.1 has a drop down w/ white text. gotta change this to make it legible. */
+    "terminal.background": "#FFFFFF",
+    "panel.background": "#FFFFFF",
+    "editorGutter.addedBackground": "#08916a",
+    "editorGutter.deletedBackground": "#de3d3b",
+    "editorGutter.modifiedBackground": "#daaa01",
+    "gitDecoration.deletedResourceForeground": "#de3d3b",
+    "gitDecoration.modifiedResourceForeground": "#daaa01",
+    "gitDecoration.untrackedResourceForeground": "#08916a",
   },
   "editor.fontFamily": "Monaco",
   "editor.fontSize": 10,
@@ -206,7 +227,6 @@
     "/Users/graykemmey/.vscode/custom/markdown_pdf_themes/github-markdown.css"
   ],
   "markdown-pdf.includeDefaultStyles": false,
-  "workbench.colorTheme": "Gray Matter",
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "prettier.requireConfig": true,
@@ -254,4 +274,6 @@
     "plaintext"
   ],
   "editor.unicodeHighlight.invisibleCharacters": false,
+  "markdown-preview-github-styles.colorTheme": "light",
+  "workbench.colorTheme": "Night Owl Light (No Italics)",
 }
