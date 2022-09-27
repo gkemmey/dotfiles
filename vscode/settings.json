@@ -134,6 +134,7 @@
   "workbench.colorCustomizations": {
     "terminal.background": "#FFFFFF",
     "panel.background": "#FFFFFF",
+    // "editorWhitespace.foreground": "#403F53",
     "editorGutter.addedBackground": "#08916a",
     "editorGutter.deletedBackground": "#de3d3b",
     "editorGutter.modifiedBackground": "#daaa01",
@@ -198,6 +199,10 @@
   "tailwindCSS.includeLanguages": {
     "erb": "html"
   },
+  "tailwindCSS.experimental.classRegex": [
+    "\\bclass:\\s*'([^']*)'",
+    "\\bclass:\\s*\"([^\"]*)\""
+  ],
   "color-highlight.markRuler": false,
   "customizeUI.titleBar": "inline",
   "editor.find.addExtraSpaceOnTop": false,
@@ -276,4 +281,6 @@
   "editor.unicodeHighlight.invisibleCharacters": false,
   "markdown-preview-github-styles.colorTheme": "light",
   "workbench.colorTheme": "Night Owl Light (No Italics)",
+  "terminal.integrated.shellIntegration.decorationsEnabled": false,
+  "terminal.integrated.shellIntegration.decorationIcon": "''"
 }

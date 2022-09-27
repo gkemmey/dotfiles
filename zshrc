@@ -179,6 +179,27 @@ function ruby_server {
   ruby -run -e httpd . -p $port
 }
 
+function ruby_echo {
+  port="${1:-4000}"
+  ruby -rwebrick -rjson -e "
+    server = WEBrick::HTTPServer.new(Port: $port).
+                                 tap { |s|
+                                   s.mount_proc('/') { |req, res|
+                                     puts(
+                                       JSON.pretty_generate({
+                                         header: req.header,
+                                         request_uri: req.request_uri,
+                                         body: req.body
+                                       })
+                                     );
+                                     res.body = 'ok'
+                                   }
+                                 };
+    %w(TERM QUIT HUP INT).each { |s| Signal.trap(s, proc { server.shutdown }) };
+    server.start
+  "
+}
+
 function test_multiple {
   bundle exec ruby -I.:test -e "ARGV.each { |f| require f }" ${@:1}
 }
