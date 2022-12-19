@@ -31,7 +31,7 @@ namespace :sync do
   namespace :code do
     desc "syncs installed extensions from vscode"
     task :extensions do
-      File.write(File.join(root, "vscode/extensions.manifest"), `code --list-extensions`)
+      File.write(File.join(Helpers.root, "vscode/extensions.manifest"), `code --list-extensions`)
     end
   end
 end

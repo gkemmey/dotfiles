@@ -25,3 +25,6 @@ eval "$(pyenv init - --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
 export PATH="$PATH:/Users/graykemmey/.local/bin"
 export PIP_REQUIRE_VIRTUALENV=true
+
+# -------- rust --------
+source ~/.cargo/env

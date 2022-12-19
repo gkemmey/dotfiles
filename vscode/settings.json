@@ -282,5 +282,10 @@
   "markdown-preview-github-styles.colorTheme": "light",
   "workbench.colorTheme": "Night Owl Light (No Italics)",
   "terminal.integrated.shellIntegration.decorationsEnabled": false,
-  "terminal.integrated.shellIntegration.decorationIcon": "''"
+  "terminal.integrated.shellIntegration.decorationIcon": "''",
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.renderColons": false
 }
