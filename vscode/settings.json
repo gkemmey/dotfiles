@@ -19,7 +19,6 @@
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "editor.scrollBeyondLastLine": false,
-  "workbench.sideBar.location": "left",
   "workbench.statusBar.visible": true, // i'm gonna keep it
   "workbench.editor.showTabs": true,
   "editor.minimap.enabled": false,
@@ -221,7 +220,6 @@
   "wordcounter.languages": [
     "markdown"
   ],
-  "workbench.activityBar.visible": false,
   "workbench.list.openMode": "doubleClick",
   "terminal.integrated.scrollback": 100000,
   "extensions.ignoreRecommendations": true,
@@ -287,5 +285,8 @@
   "rust-analyzer.inlayHints.closingBraceHints.enable": false,
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.renderColons": false,
-  "update.mode": "manual"
+  "update.mode": "manual",
+  "workbench.activityBar.visible": false,
+  "search.useParentIgnoreFiles": true,
+  "search.useGlobalIgnoreFiles": true
 }
