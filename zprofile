@@ -5,7 +5,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # -------- asdf ---------
-source /opt/homebrew/opt/asdf/asdf.sh
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # -------- chruby --------
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
