@@ -103,12 +103,16 @@
   //   "tab.inactiveForeground": "#F8F8F2",
   //   "terminal.background" : "#282A36",
   // },
-  // --------- github -------
-  // // slack: #F6F8FA,#F8F8FA,#0969DA,#FFFFFF,#0366D625,#24292F,#1A7F37,#CF222E,#F6F8FA,#24292F
-  // "workbench.colorCustomizations": {
-  //   "terminal.background": "#FFFFFF",
-  //   "panel.background": "#FFFFFF"
-  // },
+  // --------- github light default -------
+  // slack: #F6F8FA,#F8F8FA,#0969DA,#FFFFFF,#0366D625,#24292F,#1A7F37,#CF222E,#F6F8FA,#24292F
+  "workbench.colorCustomizations": {
+    "editorGutter.addedBackground": "#1a7f37",
+    "editorGutter.deletedBackground": "#cf222e",
+    "editorGutter.modifiedBackground": "#9a6700",
+    "gitDecoration.deletedResourceForeground": "#cf222e",
+    "gitDecoration.modifiedResourceForeground": "#9a6700",
+    "gitDecoration.untrackedResourceForeground": "#1a7f37",
+  },
   // --------- nord --------
   // slack: #2E3440,#3B4252,#88C0D0,#2E3440,#3B4252,#D8DEE9,#A3BE8C,#81A1C1,#3B4252,#D8DEE9
   // "workbench.colorCustomizations": {
@@ -130,17 +134,17 @@
   // },
   // -------- light owl --------
   // slack: #F0F0F0,#F8F8FA,#288ED7,#FFFFFF,#7497A633,#403F53,#08916A,#DE3D3B,#F0F0F0,#403F53
-  "workbench.colorCustomizations": {
-    "terminal.background": "#FFFFFF",
-    "panel.background": "#FFFFFF",
-    // "editorWhitespace.foreground": "#403F53",
-    "editorGutter.addedBackground": "#08916a",
-    "editorGutter.deletedBackground": "#de3d3b",
-    "editorGutter.modifiedBackground": "#daaa01",
-    "gitDecoration.deletedResourceForeground": "#de3d3b",
-    "gitDecoration.modifiedResourceForeground": "#daaa01",
-    "gitDecoration.untrackedResourceForeground": "#08916a",
-  },
+  // "workbench.colorCustomizations": {
+  //   "terminal.background": "#FFFFFF",
+  //   "panel.background": "#FFFFFF",
+  //   // "editorWhitespace.foreground": "#403F53",
+  //   "editorGutter.addedBackground": "#08916a",
+  //   "editorGutter.deletedBackground": "#de3d3b",
+  //   "editorGutter.modifiedBackground": "#daaa01",
+  //   "gitDecoration.deletedResourceForeground": "#de3d3b",
+  //   "gitDecoration.modifiedResourceForeground": "#daaa01",
+  //   "gitDecoration.untrackedResourceForeground": "#08916a",
+  // },
   "editor.fontFamily": "Monaco",
   "editor.fontSize": 10,
   "editor.suggestFontSize": 10,
@@ -278,7 +282,7 @@
   ],
   "editor.unicodeHighlight.invisibleCharacters": false,
   "markdown-preview-github-styles.colorTheme": "light",
-  "workbench.colorTheme": "Night Owl Light (No Italics)",
+  "workbench.colorTheme": "GitHub Light Default",
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
   "rust-analyzer.inlayHints.typeHints.enable": false,
   "rust-analyzer.inlayHints.chainingHints.enable": false,
