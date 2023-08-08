@@ -10,7 +10,7 @@ source /opt/homebrew/opt/asdf/libexec/asdf.sh
 # -------- chruby --------
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby 3.1.2 # set a default to avoid system ruby
+chruby 3.2.2 # set a default to avoid system ruby
 cd && cd ~-  # go home && come back to make chruby init itself form any .ruby-version files
 
 # -------- java (asdf-java) --------

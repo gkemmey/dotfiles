@@ -166,7 +166,7 @@ alias todo='code --disable-workspace-trust -n ~/Desktop/todo.md'
 
 # -------- ruby / rails --------
 alias beq='RUBYOPT="-W:no-deprecated -W:no-experimental" bundle exec'
-alias credentials='EDITOR="atom -n --wait" bundle exec rails credentials:edit'
+alias credentials='EDITOR="code -n --wait" bundle exec rails credentials:edit'
 
 # stolen from: https://stackoverflow.com/questions/9146012/how-do-i-list-all-versions-of-a-gem-available-at-a-remote-site
 function gem_versions {
@@ -247,6 +247,35 @@ function find_port {
 # to print status code and pretty printed json
 function rb_json_pp {
   ruby -rjson -e 'ARGF.read.lines.map(&:chomp).then { puts(_1.first); puts(JSON.pretty_generate(JSON.parse(_1.last))) }'
+}
+
+function scratchpad_rb {
+  $(ruby -rfileutils -e '
+    pad = ARGV[0] || Time.now.strftime("%Y%m%d%H%M");
+    path = "#{ENV["HOME"]}/Documents/scratchpads/#{pad}";
+
+    fail "#{path} already exists" if Dir.exist?(path)
+
+    FileUtils.mkdir_p(path);
+
+    File.write("#{path}/.ruby-version", "ruby-#{RUBY_VERSION}\n")
+
+    main_rb = <<~CODE
+      # ---- deps ----
+      require "bundler/inline"
+
+      gemfile(true, quiet: true) do
+        source "https://rubygems.org"
+        git_source(:github) { |repo| "https://github.com/\#{repo}.git" }
+      end
+
+      # ---- main ----
+
+    CODE
+    File.write("#{path}/main.rb", main_rb);
+
+    puts "cd #{path}"
+  ' $1) && code --disable-workspace-trust -n .
 }
 
 if [ -f ~/.zprofile ]; then
