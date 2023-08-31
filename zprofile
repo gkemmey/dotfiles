@@ -5,26 +5,33 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # -------- asdf ---------
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
+source $HOME/.asdf/asdf.sh
 
 # -------- chruby --------
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby 3.2.2 # set a default to avoid system ruby
-cd && cd ~-  # go home && come back to make chruby init itself form any .ruby-version files
+# source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+# source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+# chruby 3.2.2 # set a default to avoid system ruby
+# cd && cd ~-  # go home && come back to make chruby init itself form any .ruby-version files
 
 # -------- java (asdf-java) --------
 # ref: https://github.com/halcyon/asdf-java
 if [ -n "$ZSH_VERSION" ]; then
-  source ~/.asdf/plugins/java/set-java-home.zsh
+  # source ~/.asdf/plugins/java/set-java-home.zsh
 fi
 
 # -------- python --------
-eval "$(pyenv init --path)"
-eval "$(pyenv init - --no-rehash)"
-eval "$(pyenv virtualenv-init -)"
-export PATH="$PATH:/Users/graykemmey/.local/bin"
-export PIP_REQUIRE_VIRTUALENV=true
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init - --no-rehash)"
+# eval "$(pyenv virtualenv-init -)"
+# export PATH="$PATH:/Users/graykemmey/.local/bin"
+# export PIP_REQUIRE_VIRTUALENV=true
+
+# -------- rbenv --------
+eval "$(rbenv init - zsh)"
 
 # -------- rust --------
-source ~/.cargo/env
+# source ~/.cargo/env
+
+# -------- pco --------
+eval "$($HOME/Code/pco/bin/pco init -)"
+source $HOME/pco-box/env.sh
