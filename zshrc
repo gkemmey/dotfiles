@@ -242,6 +242,14 @@ function find_port {
   netstat -vanp tcp | grep -E "(pid|$1)"
 }
 
+function prs {
+  open -a "Google Chrome" \
+    https://github.com/pulls \
+    https://github.com/planningcenter/publishing/pulls \
+    https://github.com/planningcenter/church-center/pulls \
+    https://github.com/planningcenter/ChurchCenterApp/pulls
+}
+
 # works with curl request like
 # `curl -X POST -i -d '{}' -H "Content-Type: application/json" http://example.com | rb_json_pp`
 # to print status code and pretty printed json

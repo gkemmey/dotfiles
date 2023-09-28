@@ -35,3 +35,4 @@ eval "$(rbenv init - zsh)"
 # -------- pco --------
 eval "$($HOME/Code/pco/bin/pco init -)"
 source $HOME/pco-box/env.sh
+export PCO_BOX_LEAVE_DOCKER_RUNNING=true
