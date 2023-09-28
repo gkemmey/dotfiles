@@ -5,3 +5,8 @@
 .explorer-folders-view {
   font-size: 12px;
 }
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab .tab-label a,
+.monaco-workbench .part.editor>.content .editor-group-container>.title .title-label a {
+  font-size: 12px;
+}
