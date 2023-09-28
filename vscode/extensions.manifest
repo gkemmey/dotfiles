@@ -9,6 +9,8 @@ bierner.markdown-preview-github-styles
 bierner.markdown-yaml-preamble
 bradlc.vscode-tailwindcss
 craigb85.custom-window-zoom
+dbaeumer.vscode-eslint
+EditorConfig.EditorConfig
 esbenp.prettier-vscode
 fabiospampinato.vscode-open-in-github
 GitHub.github-vscode-theme
@@ -16,8 +18,10 @@ kirozen.wordcounter
 KoichiSasada.vscode-rdbg
 mikestead.dotenv
 naumovs.color-highlight
+ruby-syntax-tree.vscode-syntax-tree
 Shopify.ruby-extensions-pack
 Shopify.ruby-lsp
 streetsidesoftware.code-spell-checker
 tamasfe.even-better-toml
+vayan.haml
 yo1dog.cursor-align

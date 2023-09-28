@@ -7,6 +7,18 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.autoClosingQuotes": "never",
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "ruby-syntax-tree.vscode-syntax-tree",
+    "editor.formatOnSave": true,
+    "editor.semanticHighlighting.enabled": true
+  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -14,10 +26,6 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  },
-  "[ruby]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
-    "editor.semanticHighlighting.enabled": true
   },
   "breadcrumbs.enabled": false,
   "breadcrumbs.symbolPath": "off",
@@ -100,8 +108,6 @@
   "files.trimTrailingWhitespace": true,
   "git.decorations.enabled": true,
   "markdown-preview-github-styles.colorTheme": "light",
-  "prettier.requireConfig": true,
-  "prettier.useEditorConfig": false,
   "problems.decorations.enabled": false,
   "rubyLsp.rubyVersionManager": "rbenv",
   "scm.diffDecorations": "gutter",
@@ -145,12 +151,39 @@
   "workbench.colorTheme": "GitHub Light Default",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.editor.showTabs": true,
   "workbench.list.horizontalScrolling": true,
   "workbench.list.openMode": "doubleClick",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": true,
   "workbench.tips.enabled": false,
   "workbench.tree.indent": 20,
-  "workbench.layoutControl.enabled": false
+  "rubyLsp.enabledFeatures": {
+    "codeActions": false,
+    "codeLens": false,
+    "completion": true,
+    "definition": true,
+    "diagnostics": true,
+    "documentHighlights": true,
+    "documentLink": true,
+    "documentSymbols": true,
+    "foldingRanges": true,
+    "formatting": false,
+    "hover": true,
+    "inlayHint": true,
+    "onTypeFormatting": true,
+    "selectionRanges": true,
+    "semanticHighlighting": true,
+    "workspaceSymbol": true
+  },
+  "prettier.requireConfig": true,
+  "editor.inlayHints.enabled": "off",
+  "workbench.panel.defaultLocation": "right",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "search.showLineNumbers": true,
+  "git.openRepositoryInParentFolders": "never",
+  "prettier.useEditorConfig": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
 }

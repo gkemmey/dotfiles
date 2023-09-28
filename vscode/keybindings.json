@@ -34,6 +34,36 @@
     "command": "editor.action.sortLinesAscending",
     "when": "editorTextFocus"
   },
+  {
+    "key": "ctrl+cmd+h",
+    "command": "workbench.action.splitEditorLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+j",
+    "command": "workbench.action.splitEditorDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+k",
+    "command": "workbench.action.splitEditorUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+l",
+    "command": "workbench.action.splitEditorRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+g",
+    "command": "workbench.action.joinAllGroups",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+m",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "editorTextFocus"
+  },
 
   // -------- navigation --------
   {
