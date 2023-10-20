@@ -16,7 +16,7 @@ source $HOME/.asdf/asdf.sh
 # -------- java (asdf-java) --------
 # ref: https://github.com/halcyon/asdf-java
 if [ -n "$ZSH_VERSION" ]; then
-  # source ~/.asdf/plugins/java/set-java-home.zsh
+  source ~/.asdf/plugins/java/set-java-home.zsh
 fi
 
 # -------- python --------
