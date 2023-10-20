@@ -242,12 +242,48 @@ function find_port {
   netstat -vanp tcp | grep -E "(pid|$1)"
 }
 
-function prs {
-  open -a "Google Chrome" \
-    https://github.com/pulls \
-    https://github.com/planningcenter/publishing/pulls \
-    https://github.com/planningcenter/church-center/pulls \
-    https://github.com/planningcenter/ChurchCenterApp/pulls
+function m { main "$@" }
+function main {
+  ruby -e '
+    # -------- commands --------
+
+    def prs
+      chrome \
+        "https://github.com/pulls",
+        "https://github.com/planningcenter/publishing/pulls",
+        "https://github.com/planningcenter/church-center/pulls",
+        "https://github.com/planningcenter/ChurchCenterApp/pulls"
+    end
+
+    def search(location, *args)
+      send("search_#{location}", *args)
+    end
+    alias s search
+
+    # -------- subcommands ---------
+
+    def search_pco(query)
+      chrome "https://github.com/search\\?q\\=org%3Aplanningcenter+#{query}\\&type\\=code"
+    end
+
+    def search_stars(query)
+      chrome "https://github.com/gkemmey\\?tab\\=stars\\&q\\=#{query}"
+    end
+
+    # -------- helpers -------
+
+    def chrome(*urls)
+      `open -a "Google Chrome" #{urls.join(" ")}`
+    end
+
+    # -------- main --------
+
+    def main(command, *args)
+      send(command, *args)
+    end
+
+    main *ARGV
+  ' "$@"
 }
 
 # works with curl request like
