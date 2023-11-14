@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 
-irbrc_parth = File.expand_path('~/.irbrc')
+irbrc_path = File.expand_path("~/.irbrc")
 begin
-  load irbrc_parth
+  load irbrc_path
 rescue Exception
-  warn "WARNING: Could not load: #{irbrc_parth}" # because of $!.message
+  warn "WARNING: Could not load: #{irbrc_path}" # because of $!.message
 end

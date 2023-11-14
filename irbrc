@@ -4,6 +4,18 @@ require 'irb/ext/save-history'
 
 IRB.conf[:SAVE_HISTORY] = 10000000
 
+# ref: https://twitter.com/hasumikin/status/1722053034958623170
+begin
+  Gem::Specification.find_by_name("reline", ">= 0.4")
+  
+  Reline::Face.config(:completion_dialog) do |conf|
+    conf.define :default, foreground: :black, background: :bright_white
+    conf.define :enhanced, foreground: :black, background: :bright_blue
+    conf.define :scrollbar, foreground: :bright_blue, background: :white
+  end
+rescue Gem::MissingSpecVersionError
+end
+
 # loads .railsrc if this looks like a rails session
 railsrc_path = File.expand_path('~/.railsrc')
 
