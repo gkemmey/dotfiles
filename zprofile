@@ -4,6 +4,14 @@
 # to add it's shim stuffs on top.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# -------- android --------
+# ref: https://reactnative.dev/docs/environment-setup?platform=android
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/build-tools/34.0.0
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # -------- asdf ---------
 source $HOME/.asdf/asdf.sh
 
