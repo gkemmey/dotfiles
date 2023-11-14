@@ -248,7 +248,11 @@ function main {
     # -------- commands --------
 
     def prs
+      teammates = %w(alexandervalencia bweave dannydb gkemmey JoshCNelson soberstadt)
+      author_predicates = teammates.map { |t| "author%3A#{t}" }.join("+")
+
       chrome \
+        "https://github.com/search\\?q\\=user%3Aplanningcenter+is%3Apr+#{author_predicates}+state%3Aopen\\&type\\=pullrequests\\&ref\\=advsearch\\&s\\=created\\&o\\=desc",
         "https://github.com/pulls",
         "https://github.com/planningcenter/publishing/pulls",
         "https://github.com/planningcenter/church-center/pulls",
