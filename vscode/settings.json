@@ -137,7 +137,6 @@
   "wordcounter.languages": [
     "markdown"
   ],
-  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     // --------- github light default -------
     // slack: #F6F8FA,#F8F8FA,#0969DA,#FFFFFF,#0366D625,#24292F,#1A7F37,#CF222E,#F6F8FA,#24292F
@@ -186,4 +185,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "workbench.activityBar.location": "hidden",
 }
