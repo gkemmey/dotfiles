@@ -248,7 +248,7 @@ function main {
     # -------- commands --------
 
     def prs
-      teammates = %w(alexandervalencia bweave dannydb gkemmey JoshCNelson soberstadt)
+      teammates = %w(alexandervalencia bweave dannydb JoshCNelson soberstadt)
       author_predicates = teammates.map { |t| "author%3A#{t}" }.join("+")
 
       chrome \
