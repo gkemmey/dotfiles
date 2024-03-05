@@ -38,7 +38,7 @@ fi
 eval "$(rbenv init - zsh)"
 
 # -------- rust --------
-# source ~/.cargo/env
+source $HOME/.cargo/env
 
 # -------- pco --------
 eval "$($HOME/Code/pco/bin/pco init -)"
