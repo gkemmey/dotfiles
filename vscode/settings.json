@@ -109,7 +109,6 @@
   "git.decorations.enabled": true,
   "markdown-preview-github-styles.colorTheme": "light",
   "problems.decorations.enabled": false,
-  "rubyLsp.rubyVersionManager": "rbenv",
   "scm.diffDecorations": "gutter",
   "search.useGlobalIgnoreFiles": true,
   "search.useParentIgnoreFiles": true,
@@ -189,4 +188,9 @@
   "explorer.compactFolders": false,
   "markdown.preview.scrollPreviewWithEditor": false,
   "markdown.preview.scrollEditorWithPreview": false,
+  "window.zoomLevel": -0.25,
+  "editor.stickyScroll.enabled": false,
+  "rubyLsp.enableExperimentalFeatures": true,
+  "rubocop.mode": "enableViaGemfile",
+  "rubyLsp.linters": ["rubocop"],
 }
