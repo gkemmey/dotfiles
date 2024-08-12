@@ -5,6 +5,7 @@
 	email = gray.kemmey@gmail.com
 [core]
 	editor = code --wait
+	commentChar = "#"
 [pull]
 	ff = only
 [filter "lfs"]
@@ -14,3 +15,7 @@
 	required = true
 [merge]
 	conflictStyle = zdiff3
+[commit]
+	verbose = true
+[rebase]
+	autosquash = true

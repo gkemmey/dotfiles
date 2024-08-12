@@ -211,6 +211,8 @@ alias desktop_on='defaults write com.apple.finder CreateDesktop true; killall Fi
 alias disk_space='sudo du -a | sort -n -r | head -n 25' # run in /, shows 25 largest files
 alias docker_host_ip='ipconfig getifaddr en0'
 alias folder_space='sudo du -sh *' # shows top-level folder and file sizes where run
+alias gdss='git diff --short-stat'
+alias grbim='grbi $(git_main_branch)'
 alias ll="ls -lha"
 alias php_permissions='sudo chmod -R a+w .'
 
