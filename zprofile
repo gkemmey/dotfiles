@@ -40,6 +40,9 @@ eval "$(rbenv init - zsh)"
 # -------- rust --------
 source $HOME/.cargo/env
 
+# -------- yarn --------
+export PATH="$PATH:$(yarn global bin)"
+
 # -------- pco --------
 eval "$($HOME/Code/pco/bin/pco init -)"
 source $HOME/pco-box/env.sh
