@@ -1,17 +1,17 @@
 #!/usr/bin/ruby
 require 'irb/completion'
-require 'irb/ext/save-history'
+require 'irb/ext/save-history' if Gem::Version.new(RUBY_VERSION) < Gem::Version.new("3.3")
 
-IRB.conf[:SAVE_HISTORY] = 10000000
+IRB.conf[:SAVE_HISTORY] = 10000000 if IRB.respond_to?(:conf)
 
 # ref: https://twitter.com/hasumikin/status/1722053034958623170
 begin
   Gem::Specification.find_by_name("reline", ">= 0.4")
-  
+
   Reline::Face.config(:completion_dialog) do |conf|
-    conf.define :default, foreground: :black, background: :bright_white
-    conf.define :enhanced, foreground: :black, background: :bright_blue
-    conf.define :scrollbar, foreground: :bright_blue, background: :white
+    conf.define :default, foreground: :white, background: :bright_black
+    conf.define :enhanced, foreground: :black, background: :bright_cyan
+    conf.define :scrollbar, foreground: :bright_cyan, background: :bright_black
   end
 rescue Gem::MissingSpecVersionError
 end
