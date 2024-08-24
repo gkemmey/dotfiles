@@ -14,6 +14,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # -------- asdf ---------
 source $HOME/.asdf/asdf.sh
+export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_installed
 
 # -------- chruby --------
 # source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
