@@ -58,7 +58,10 @@ config.colors = {
   },
 }
 
-config.font = wezterm.font("Monaco", { weight = "Regular" })
+config.font = wezterm.font_with_fallback({
+  wezterm.font({ family = "Monaco", weight = "Regular" }).font[1],
+  wezterm.font({ family = "Apple Color Emoji", weight = "Regular" }).font[1]
+})
 config.cell_width = 0.95
 config.font_size = 13
 config.freetype_load_target = "Light" -- ref: https://github.com/wez/wezterm/issues/3774
@@ -100,10 +103,16 @@ config.keys = {
   { key = "[", mods = "SHIFT|OPT", action = act.ActivatePaneDirection("Prev") },
   { key = "]", mods = "SHIFT|OPT", action = act.ActivatePaneDirection("Next") },
 
+  { key = 'f', mods = 'SHIFT|CTRL', action = act.Search({ CaseInSensitiveString = '' }) },
+  { key = 'f', mods = 'SUPER', action = act.Search({ CaseInSensitiveString = '' }) },
+
   { key = "LeftArrow", mods = "OPT", action = act.SendKey { key = "b", mods = "ALT" } },
   { key = "RightArrow", mods = "OPT", action = act.SendKey { key = "f", mods = "ALT" } },
   { key = "LeftArrow", mods = "SUPER", action = act.SendKey { key = "Home", mods = "NONE" } },
   { key = "RightArrow", mods = "SUPER", action = act.SendKey { key = "End", mods = "NONE" } },
+
+  { key = "UpArrow", mods = "SUPER", action = act.ScrollToTop },
+  { key = "DownArrow", mods = "SUPER", action = act.ScrollToBottom },
 }
 
 config.key_tables = {
@@ -112,6 +121,5 @@ config.key_tables = {
     { key = "|", mods = "SHIFT", action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
   },
 }
-
 
 return config
