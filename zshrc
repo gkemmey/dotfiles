@@ -160,9 +160,10 @@ alias js='bundle exec jekyll serve'
 alias pgs="postgres -D /opt/homebrew/var/postgres"
 
 # -------- "org mode" --------
-alias notes='code --disable-workspace-trust -n ~/Desktop/notes.md'
-alias scratchpad='code --disable-workspace-trust -n ~/Desktop/scratchpad.md'
-alias todo='code --disable-workspace-trust -n ~/Desktop/todo.md'
+alias ideas='code --disable-workspace-trust -n ~/Desktop/ideas.md ~/Desktop/notes.md ~/Desktop/scratchpad.md ~/Desktop/todo.md'
+alias notes='ideas'
+alias scratchpad='ideas'
+alias todo='ideas'
 
 # -------- ruby / rails --------
 alias beq='RUBYOPT="-W:no-deprecated -W:no-experimental" bundle exec'
