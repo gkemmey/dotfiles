@@ -59,8 +59,8 @@ config.colors = {
 }
 
 config.font = wezterm.font_with_fallback({
-  wezterm.font({ family = "Monaco", weight = "Regular" }).font[1],
-  wezterm.font({ family = "Apple Color Emoji", weight = "Regular" }).font[1]
+  { family = "Monaco", weight = "Regular" },
+  { family = "Apple Color Emoji", weight = "Regular" }
 })
 config.cell_width = 0.95
 config.font_size = 13
@@ -102,6 +102,11 @@ config.keys = {
   { key = "}", mods = "SHIFT|OPT", action = act.ActivatePaneDirection("Next") },
   { key = "[", mods = "SHIFT|OPT", action = act.ActivatePaneDirection("Prev") },
   { key = "]", mods = "SHIFT|OPT", action = act.ActivatePaneDirection("Next") },
+
+  { key = "{", mods = "SHIFT|CTRL", action = act.MoveTabRelative(-1) },
+  { key = "}", mods = "SHIFT|CTRL", action = act.MoveTabRelative(1) },
+  { key = "[", mods = "SHIFT|CTRL", action = act.MoveTabRelative(-1) },
+  { key = "]", mods = "SHIFT|CTRL", action = act.MoveTabRelative(1) },
 
   { key = 'f', mods = 'SHIFT|CTRL', action = act.Search({ CaseInSensitiveString = '' }) },
   { key = 'f', mods = 'SUPER', action = act.Search({ CaseInSensitiveString = '' }) },
