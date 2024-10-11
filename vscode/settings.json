@@ -192,5 +192,10 @@
   "editor.stickyScroll.enabled": false,
   "rubyLsp.enableExperimentalFeatures": true,
   "rubocop.mode": "enableViaGemfile",
-  "rubyLsp.linters": ["rubocop"],
+  "rubyLsp.linters": [
+    "rubocop"
+  ],
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "rbenv"
+  },
 }
