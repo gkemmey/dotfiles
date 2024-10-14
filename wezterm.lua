@@ -59,15 +59,15 @@ config.colors = {
 }
 
 config.font = wezterm.font_with_fallback({
-  { family = "Monaco", weight = "Regular" },
+  { family = "Monego Nerd Font Fix", weight = "Regular", harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } },
   { family = "Apple Color Emoji", weight = "Regular" }
 })
 config.cell_width = 0.95
-config.font_size = 13
+config.font_size = 14
 config.freetype_load_target = "Light" -- ref: https://github.com/wez/wezterm/issues/3774
 config.freetype_load_flags = "NO_HINTING" -- ref: https://github.com/wez/wezterm/issues/3774
 config.freetype_render_target = "HorizontalLcd" -- ref: https://github.com/wez/wezterm/issues/3774
-config.line_height = 1.15
+config.line_height = 1.25
 
 config.scrollback_lines = 10000
 
