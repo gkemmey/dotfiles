@@ -79,6 +79,46 @@ config.window_frame = {
   inactive_titlebar_bg = "#ffffff",
 }
 
+-- ref: https://github.com/wez/wezterm/issues/3803#issuecomment-2379791340
+config.hyperlink_rules = {
+  -- Matches: a URL in parens: (URL)
+  -- Markdown: [text](URL title)
+  {
+    regex = '\\((\\w+://\\S+?)(?:\\s+.+)?\\)',
+    format = '$1',
+    highlight = 1,
+  },
+  -- Matches: a URL in brackets: [URL]
+  {
+    regex = '\\[(\\w+://\\S+?)\\]',
+    format = '$1',
+    highlight = 1,
+  },
+  -- Matches: a URL in curly braces: {URL}
+  {
+    regex = '\\{(\\w+://\\S+?)\\}',
+    format = '$1',
+    highlight = 1,
+  },
+  -- Matches: a URL in angle brackets: <URL>
+  {
+    regex = '<(\\w+://\\S+?)>',
+    format = '$1',
+    highlight = 1,
+  },
+  -- Then handle URLs not wrapped in brackets
+  -- regex = '\\b\\w+://\\S+[)/a-zA-Z0-9-]+',
+  {
+    regex = '(?<![\\(\\{\\[<])\\b\\w+://\\S+',
+    format = '$0',
+  },
+  -- implicit mailto link
+  {
+    regex = '\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b',
+    format = 'mailto:$0',
+  },
+}
+
 config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
   { key = "d", mods = "LEADER", action = act.ShowDebugOverlay },
@@ -124,6 +164,24 @@ config.key_tables = {
   split_mode = {
     { key = "-", mods = "", action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
     { key = "|", mods = "SHIFT", action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
+  },
+}
+
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = act.CompleteSelection 'ClipboardAndPrimarySelection'
+  },
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = "SUPER",
+    action = act.OpenLinkAtMouseCursor
+  },
+  {
+    event = { Down = { streak = 1, button = 'Left' } },
+    mods = "SUPER",
+    action = act.Nop
   },
 }
 
