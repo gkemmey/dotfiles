@@ -1,0 +1,153 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `zed: Open Default Settings` command
+// from the command palette
+{
+  "buffer_font_family": "Monego Nerd Font Fix",
+  "buffer_font_features": {
+    "calt": false
+  },
+  "buffer_font_size": 11,
+  "buffer_line_height": { "custom": 1.5 },
+
+  "double_click_in_multibuffer": "open",
+
+  "format_on_save": "on",
+
+  "inlay_hints": {
+    "enabled": false,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+
+  "languages": {
+    "JavaScript": {
+      "formatter": {
+        "code_actions": {
+          "source.fixAll.eslint": true
+        }
+      },
+      "language_servers": ["eslint"]
+    },
+    "Markdown": { "soft_wrap": "editor_width" },
+    "Ruby": {
+      "formatter": {
+        "external": { "command": "rbfmt", "arguments": [] }
+      },
+      "language_servers": ["rubocop", "ruby-lsp", "!solargraph", "!tailwindcss-language-server"]
+    }
+  },
+
+  "lsp": {
+    "eslint": {},
+    "rubocop": {
+      "initialization_options": {
+        "safeAutocorrect": false
+      }
+    },
+    "ruby-lsp": {
+      "initialization_options": {
+        "enabledFeatures": {
+          "codeActions": true,
+          "codeLens": true,
+          "completion": true,
+          "definition": true,
+          "diagnostics": false, // zed doesn't support pull-type diagnostics, which is what ruby-lsp uses (refs: https://github.com/zed-industries/zed/discussions/6560, https://github.com/zed-industries/zed/pull/19230)
+          "documentHighlights": true,
+          "documentLink": true,
+          "documentSymbols": true,
+          "foldingRanges": true,
+          "formatting": false,
+          "hover": true,
+          "inlayHint": true,
+          "onTypeFormatting": false,
+          "selectionRanges": true,
+          "semanticHighlighting": true,
+          "signatureHelp": true,
+          "typeHierarchy": true,
+          "workspaceSymbol": true
+        },
+        "experimentalFeaturesEnabled": false,
+        "featuresConfiguration": {
+          "inlayHint": {
+            "implicitHashValue": true,
+            "implicitRescue": true
+          }
+        },
+        "formatter": "auto",
+        "linters": []
+      }
+    },
+    "solargraph": {
+      "initialization_options": {
+        "autoformat": false,
+        "completion": false,
+        "definitions": false,
+        "diagnostics": true, // until zed and ruby-lsp can do this
+        "formatting": false,
+        "hover": false,
+        "references": false,
+        "rename": false,
+        "symbols": false
+      }
+    }
+  },
+
+  "preferred_line_length": 100,
+
+  "preview_tabs": {
+    "enabled": false,
+    "enable_preview_from_file_finder": false,
+    "enable_preview_from_code_navigation": false
+  },
+
+  "projects_online_by_default": false,
+
+  "scroll_beyond_last_line": "off",
+
+  "search": {
+    "whole_word": false,
+    "case_sensitive": false,
+    "include_ignored": false,
+    "regex": true
+  },
+
+  "show_nav_history_buttons": false,
+
+  "tab_size": 2,
+  "tabs": {
+    "close_position": "right",
+    "file_icons": false,
+    "git_status": true
+  },
+
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+
+  "terminal_font_family": "Monego Nerd Font Fix",
+  "terminal_font_features": {
+    "calt": false
+  },
+  "terminal_font_size": 11,
+
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+
+  "ui_font_family": "Monego Nerd Font Fix",
+  "ui_font_features": {
+    "calt": false
+  },
+  "ui_font_size": 13,
+
+  "wrap_guides": [80, 100]
+}
