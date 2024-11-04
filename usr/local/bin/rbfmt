@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+# ---- helpers ----
+
+def config_file?(filename)
+  File.exist?(File.expand_path("./#{filename}", Dir.pwd))
+end
+
+# ---- formatters ----
+
+def stree_fmt
+  return unless config_file?(".streerc")
+
+  require "syntax_tree"
+  require "syntax_tree/cli"
+
+  exit(SyntaxTree::CLI.run(['format']))
+rescue LoadError
+end
+
+def no_fmt
+  puts ARGF.read
+end
+
+# ---- main ----
+
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("./Gemfile", Dir.pwd)
+require "bundler/setup" if File.exist?(ENV["BUNDLE_GEMFILE"])
+
+stree_fmt
+no_fmt

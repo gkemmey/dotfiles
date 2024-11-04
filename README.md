@@ -17,3 +17,5 @@
 - [ ] how to track homebrew setup? homebrew offers something for this, i think
 - [ ] change ~/.vscode/argv.json `enable-crash-reporter` to false
 - [ ] vscode: set ignored extensions
+- [ ] link usr/local/bin to /usr/local/bin
+- [ ] link `zed` folder to `~/config/zed`
