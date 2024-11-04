@@ -52,6 +52,9 @@
   "lsp": {
     "eslint": {},
     "rubocop": {
+      "binary": {
+        "path": "rblint"
+      },
       "initialization_options": {
         "safeAutocorrect": false
       }
