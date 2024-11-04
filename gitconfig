@@ -4,7 +4,7 @@
 	name = gkemmey
 	email = gray.kemmey@gmail.com
 [core]
-	editor = code --wait
+	editor = zed -n -w
 	commentChar = "#"
 [pull]
 	ff = only
