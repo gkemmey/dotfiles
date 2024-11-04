@@ -32,14 +32,20 @@
           "source.fixAll.eslint": true
         }
       },
-      "language_servers": ["eslint"]
+      "language_servers": ["eslint", "typos"]
     },
     "Markdown": { "soft_wrap": "editor_width" },
     "Ruby": {
       "formatter": {
         "external": { "command": "rbfmt", "arguments": [] }
       },
-      "language_servers": ["rubocop", "ruby-lsp", "!solargraph", "!tailwindcss-language-server"]
+      "language_servers": [
+        "rubocop",
+        "ruby-lsp",
+        "!solargraph",
+        "!tailwindcss-language-server",
+        "typos"
+      ]
     }
   },
 
@@ -94,6 +100,14 @@
         "references": false,
         "rename": false,
         "symbols": false
+      }
+    },
+    "typos": {
+      "initialization_options": {
+        "config": "~/.typos.toml", // meant to be configured per-project; not how i'm using it
+        "diagnosticSeverity": "Error",
+        "logLevel": "info",
+        "trace.server": "off"
       }
     }
   },
