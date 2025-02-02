@@ -160,7 +160,7 @@ alias js='bundle exec jekyll serve'
 alias pgs="postgres -D /opt/homebrew/var/postgres"
 
 # -------- "org mode" --------
-alias ideas='code --disable-workspace-trust -n ~/Desktop/ideas.md ~/Desktop/notes.md ~/Desktop/scratchpad.md ~/Desktop/todo.md'
+alias ideas='zed -n ~/Desktop/ideas.md ~/Desktop/notes.md ~/Desktop/scratchpad.md ~/Desktop/todo.md'
 alias notes='ideas'
 alias scratchpad='ideas'
 alias todo='ideas'
