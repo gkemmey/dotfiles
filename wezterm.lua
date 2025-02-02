@@ -69,7 +69,7 @@ config.freetype_load_flags = "NO_HINTING" -- ref: https://github.com/wez/wezterm
 config.freetype_render_target = "HorizontalLcd" -- ref: https://github.com/wez/wezterm/issues/3774
 config.line_height = 1.25
 
-config.scrollback_lines = 10000
+config.scrollback_lines = 100000
 
 config.use_fancy_tab_bar = true
 config.window_frame = {
