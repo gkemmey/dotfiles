@@ -26,4 +26,7 @@ ENV["BUNDLE_GEMFILE"] ||= File.expand_path("./Gemfile", Dir.pwd)
 require "bundler/setup" if File.exist?(ENV["BUNDLE_GEMFILE"])
 
 ARGV.unshift("--lsp")
+# TODO: in some projects i saw a NameError for StringIO. i dunno why. ruby 3.1.6 and rubocop 1.64.1.
+# this is a hack, but i also don't care to figure out why it's broken.
+require "stringio"
 load Gem.bin_path("rubocop", "rubocop")
