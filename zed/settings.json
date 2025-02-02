@@ -34,7 +34,7 @@
       },
       "language_servers": ["eslint", "typos"]
     },
-    "Markdown": { "soft_wrap": "editor_width" },
+    "Markdown": { "format_on_save": "off", "soft_wrap": "editor_width" },
     "Ruby": {
       "formatter": {
         "external": { "command": "rbfmt", "arguments": [] }
