@@ -1,0 +1,117 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+# dependencies -------------------------------------------------------------------------------------
+
+require "bundler/inline"
+
+gemfile(true, quiet: true) do
+  source "https://rubygems.org"
+
+  gem "gli"
+  gem "pastel"
+  gem "tty-spinner", github: "piotrmurach/tty-spinner"
+end
+
+# helpers ------------------------------------------------------------------------------------------
+
+class Dots
+  attr_reader :home
+
+  def initialize(options)
+    @dry_run = options[:"dry-run"]
+    @home = ENV.fetch("XDG_CONFIG_HOME") { ENV.fetch("HOME") }
+  end
+
+  def dotfile_path(to) = File.join(home, to)
+
+  def dry_run? = !!@dry_run
+
+  def link(source, to:, sudo: false)
+    dotfile_path = to.is_a?(Hash) ? to[:absolute] : dotfile_path(to)
+    command = %Q{#{'sudo ' if sudo}ln -fs "#{repo_path(source)}" "#{dotfile_path}"}
+
+    format = "[#{Utils.yellow(":spinner")}] linking #{source}"
+    success_mark = dry_run? ? Utils.yellow("-") : Utils.green("+")
+
+    spinner = TTY::Spinner.new(format, success_mark:)
+    spinner.run do |s|
+      s.log Utils.updent(command)
+
+      if dry_run?
+        s.success Utils.yellow("(skipped)")
+      else
+        exit_now!("unable to link #{repo_path(source)}") unless system(command)
+        s.success Utils.green("(success)")
+      end
+    end
+  end
+
+  def repo_path(source) = File.join(root, source)
+
+  def root = File.expand_path(File.dirname(__FILE__))
+end
+
+module Utils
+  module_function
+
+  def updent(string, padding = 4) = "#{" " * padding}↱ #{string}"
+
+  @@pastel = Pastel.new
+
+  def green(...)  = @@pastel.green(...)
+  def yellow(...) = @@pastel.yellow(...)
+end
+
+# dsls ---------------------------------------------------------------------------------------------
+
+ENV["GLI_DEBUG"] = "true"
+include GLI::App
+
+# main ---------------------------------------------------------------------------------------------
+
+program_desc "Manage your dotfiles"
+subcommand_option_handling :normal
+arguments :strict
+
+desc "Run without linking dotfiles in your home directory"
+switch [:d, :"dry-run"]
+
+desc "Install the dotfiles into your home directory"
+command :install do |c|
+
+  c.action do |global_options, _options, _args|
+    dots = Dots.new(global_options)
+
+    dots.link "asdf/.asdfrc", to: ".asdfrc"
+    dots.link "asdf/.tool-versions", to: ".tool-versions"
+
+    dots.link "bash/.bash_profile", to: ".bash_profile"
+    dots.link "bash/.bashrc", to: ".bashrc"
+
+    dots.link "git/.gitconfig", to: ".gitconfig"
+
+    dots.link "ruby/.irbrc", to: ".irbrc"
+    dots.link "ruby/.pryrc", to: ".pryrc"
+    dots.link "ruby/.railsrc", to: ".railsrc"
+
+    dots.link "typos-lsp/.typos.toml", to: ".typos.toml"
+
+    dots.link "usr/local/bin/rbfmt", to: { absolute: "/usr/local/bin/rbfmt" }, sudo: true
+    dots.link "usr/local/bin/rblint", to: { absolute: "/usr/local/bin/rblint" }, sudo: true
+
+    dots.link "vscode/keybindings.json", to: "Library/Application Support/Code/User/keybindings.json"
+    dots.link "vscode/settings.json", to: "Library/Application Support/Code/User/settings.json"
+
+    dots.link "wezterm/.wezterm.lua", to: ".wezterm.lua"
+
+    dots.link "zed/keymap.json", to: ".config/zed/keymap.json"
+    dots.link "zed/settings.json", to: ".config/zed/settings.json"
+
+    dots.link "zsh/.zprofile", to: ".zprofile"
+    dots.link "zsh/.zshrc", to: ".zshrc"
+  end
+end
+
+exit run(ARGV)

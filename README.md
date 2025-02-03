@@ -2,13 +2,17 @@
 
 1. `git clone git@github.com:gkemmey/dotfiles.git ~/.dotfiles`
 2. `cd ~/.dotfiles`
-3. `rake install`
+3. `./dots install`
+
+## Test
+
+`./dots --dry-run install`
 
 ## VS Code
 
 ### Save installed extensions
 
-`rake sync:code:extensions`
+todo
 
 ## TODO
 
@@ -17,5 +21,4 @@
 - [ ] how to track homebrew setup? homebrew offers something for this, i think
 - [ ] change ~/.vscode/argv.json `enable-crash-reporter` to false
 - [ ] vscode: set ignored extensions
-- [ ] link usr/local/bin to /usr/local/bin
-- [ ] link `zed` folder to `~/config/zed`
+- [ ] vscode: re-handle writing to and installing from extensions manifest if vscode installed
