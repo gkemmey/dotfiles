@@ -58,17 +58,57 @@ local github_colors = {
   },
 }
 
-local scheme = 'One Light (base16)'
-local scheme_def = wezterm.color.get_builtin_schemes()[scheme]
-config.color_scheme = scheme
-config.colors = {
-  tab_bar = {
-    active_tab = { bg_color = scheme_def.background, fg_color = scheme_def.ansi[6], },
-    inactive_tab = { bg_color = scheme_def.indexed[18], fg_color = scheme_def.indexed[20] },
-    inactive_tab_edge = scheme_def.indexed[18],
-    new_tab = { bg_color = scheme_def.background, fg_color = scheme_def.foreground }
-  }
+-- an attempt to match zed's built-in one light theme
+-- ref: https://github.com/zed-industries/zed/blob/v0.171.6/assets/themes/one/one.json#L446-L473
+local zed_one_light = {
+  ansi = {
+    "#fafafa",
+    "#d36151",
+    "#669f59",
+    "#a48819",
+    "#5c78e2",
+    "#984ea5",
+    "#3a82b7",
+    "#242529",
+  },
+  background = "#fafafa",
+  brights = {
+    "#aaaaaa",
+    "#d36151",
+    "#669f59",
+    "#a48819",
+    "#5c78e2",
+    "#984ea5",
+    "#3a82b7",
+    "#242529",
+  },
+  cursor_bg = "#242529",
+  cursor_border = "#242529",
+  cursor_fg = "#fafafa",
+  foreground = "#242529",
+  selection_bg = "#242529",
+  selection_fg = "#fafafa",
 }
+zed_one_light.tab_bar = {
+  active_tab = { bg_color = zed_one_light.background, fg_color = zed_one_light.foreground, },
+  inactive_tab = { bg_color = "#e3e3e3", fg_color = "#97979a" },
+  inactive_tab_edge = "#e3e3e3",
+  new_tab = { bg_color = zed_one_light.background, fg_color = zed_one_light.foreground }
+}
+
+config.colors = zed_one_light
+
+-- local scheme = 'One Light (base16)'
+-- local scheme_def = wezterm.color.get_builtin_schemes()[scheme]
+-- config.color_scheme = scheme
+-- config.colors = {
+--   tab_bar = {
+--     active_tab = { bg_color = scheme_def.background, fg_color = scheme_def.ansi[6], },
+--     inactive_tab = { bg_color = scheme_def.indexed[18], fg_color = scheme_def.indexed[20] },
+--     inactive_tab_edge = scheme_def.indexed[18],
+--     new_tab = { bg_color = scheme_def.background, fg_color = scheme_def.foreground }
+--   }
+-- }
 
 config.font = wezterm.font_with_fallback({
   { family = "Monego Nerd Font Fix", weight = "Regular", harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } },
@@ -87,8 +127,8 @@ config.use_fancy_tab_bar = true
 config.window_frame = {
   font = wezterm.font { family = "Monego Nerd Font Fix" },
   font_size = 14,
-  active_titlebar_bg = scheme_def.indexed[18],
-  inactive_titlebar_bg = scheme_def.indexed[18],
+  active_titlebar_bg = "#e3e3e3",
+  inactive_titlebar_bg = "#e3e3e3",
 }
 
 -- ref: https://github.com/wez/wezterm/issues/3803#issuecomment-2379791340
