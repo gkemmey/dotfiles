@@ -20,7 +20,7 @@ local config = wezterm.config_builder()
 -- base0D: "#795da3"
 -- base0E: "#a71d5d"
 -- base0F: "#333333"
-config.colors = {
+local github_colors = {
   foreground = "#333333", -- 05
   background = "#ffffff", -- 00
   cursor_bg = "#333333", -- 05
@@ -58,6 +58,18 @@ config.colors = {
   },
 }
 
+local scheme = 'One Light (base16)'
+local scheme_def = wezterm.color.get_builtin_schemes()[scheme]
+config.color_scheme = scheme
+config.colors = {
+  tab_bar = {
+    active_tab = { bg_color = scheme_def.background, fg_color = scheme_def.ansi[6], },
+    inactive_tab = { bg_color = scheme_def.indexed[18], fg_color = scheme_def.indexed[20] },
+    inactive_tab_edge = scheme_def.indexed[18],
+    new_tab = { bg_color = scheme_def.background, fg_color = scheme_def.foreground }
+  }
+}
+
 config.font = wezterm.font_with_fallback({
   { family = "Monego Nerd Font Fix", weight = "Regular", harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } },
   { family = "Apple Color Emoji", weight = "Regular" }
@@ -73,10 +85,10 @@ config.scrollback_lines = 100000
 
 config.use_fancy_tab_bar = true
 config.window_frame = {
-  font = wezterm.font { family = "Monaco" },
+  font = wezterm.font { family = "Monego Nerd Font Fix" },
   font_size = 14,
-  active_titlebar_bg = "#ffffff",
-  inactive_titlebar_bg = "#ffffff",
+  active_titlebar_bg = scheme_def.indexed[18],
+  inactive_titlebar_bg = scheme_def.indexed[18],
 }
 
 -- ref: https://github.com/wez/wezterm/issues/3803#issuecomment-2379791340
