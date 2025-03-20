@@ -1,0 +1,130 @@
+#!/usr/bin/env node
+
+const fs = require("fs")
+const os = require("os")
+const path = require("path")
+const { execSync } = require("child_process")
+
+// ---- constants ----
+
+// skipping supporting old files until i need it:
+//     - https://eslint.org/docs/latest/use/configure/configuration-files-deprecated
+//     - https://github.com/eslint/eslint/discussions/18131 (package.json)
+const ESLINT_CONFIG_FILES = [
+  "eslint.config.cjs",
+  "eslint.config.cts",
+  "eslint.config.js",
+  "eslint.config.mjs",
+  "eslint.config.mts",
+  "eslint.config.ts"
+]
+const LOG_FILE = path.join(os.homedir(), ".jsfmt_history")
+const PRETTIER_CONFIG_FILES = [
+  ".prettierrc.js",
+  ".prettierrc.json",
+  ".prettierrc.mjs",
+  ".prettierrc.ts",
+  ".prettierrc.yaml",
+  "prettier.config.js",
+  "prettier.config.mjs",
+  "prettier.config.ts",
+]
+
+// ---- helpers ----
+
+function isCommandInstalled(name) {
+  return isCommandLocallyInstalled(name) || isCommandGloballyInstalled(name)
+}
+
+function isCommandLocallyInstalled(name) {
+  return fs.existsSync(path.resolve(`node_modules/.bin/${name}`))
+}
+
+function isCommandGloballyInstalled(name) {
+  try {
+    execSync(`which ${command}`, { stdio: "ignore" })
+    return true
+  } catch {
+    return false
+  }
+}
+
+function isEslintConfiguredToRunPrettier() {
+  // return ESLINT_CONFIG_FILES.some(function(f) {
+  //   const file = path.resolve(f)
+  //   if (!fs.existsSync(file)) return
+
+  //   return fs.readfileSync(file, "utf-8").includes("eslint-plugin-prettier")
+  // })
+
+  return isModuleInstalled("eslint-plugin-prettier")
+}
+
+function isModuleInstalled(name) {
+  try {
+    let x = require.resolve(name, { paths: [process.cwd()] })
+    return true
+  } catch {
+    return false
+  }
+}
+
+function isPrettierConfigured() {
+  const isConfigFilePresent = PRETTIER_CONFIG_FILES.some(function(f) {
+    return fs.existsSync(path.resolve(f))
+  })
+
+  if (isConfigFilePresent) { return true }
+
+  try {
+    return !!JSON.parse(fs.readFileSync(path.resolve("package.json"), "utf-8")).prettier
+  } catch {
+    return false
+  }
+}
+
+function log(message) {
+  fs.appendFileSync(LOG_FILE, `${message}\n`)
+}
+
+function run(command, ...args) {
+  if (isCommandLocallyInstalled(command)) {
+    command = `node_modules/.bin/${command}`
+  }
+
+  let input
+  if (args.length > 0 && args[args.length - 1].input) {
+    input = args.pop().input
+  }
+
+  try {
+    return execSync(`${command} ${args.join(" ")}`, { encoding: "utf-8", input })
+  } catch (error) {
+    log(`failed to run \`${command} ${args.join(" ")}\`:`)
+    log(error)
+  }
+}
+
+// ---- main ----
+
+// zed passes the contents of the file to stdin
+let source = fs.readFileSync(0, "utf-8")
+
+// log(`running: ${process.cwd()}`)
+// log(`eslint?: ${isEslintConfiguredToRunPrettier()}`)
+// log(`prettier?: ${isPrettierConfigured()}`)
+
+if (isEslintConfiguredToRunPrettier()) {
+  const response = run("eslint", "--fix-dry-run --format json --stdin", { input: source })
+  // log(response)
+  const formatted = JSON.parse(response)[0].output
+
+  process.stdout.write(formatted || source)
+}
+else if (isPrettierConfigured()) {
+  const formatted = run("prettier", "--stdin", { input: source })
+  process.stdout.write(formatted)
+}
+else {
+  process.stdout.write(source)
+}

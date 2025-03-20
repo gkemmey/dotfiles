@@ -98,6 +98,7 @@ command :install do |c|
 
     dots.link "typos-lsp/.typos.toml", to: ".typos.toml"
 
+    dots.link "usr/local/bin/jsfmt", to: { absolute: "/usr/local/bin/jsfmt" }, sudo: true
     dots.link "usr/local/bin/rbfmt", to: { absolute: "/usr/local/bin/rbfmt" }, sudo: true
     dots.link "usr/local/bin/rblint", to: { absolute: "/usr/local/bin/rblint" }, sudo: true
 
