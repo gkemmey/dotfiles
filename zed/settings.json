@@ -26,11 +26,12 @@
   },
 
   "languages": {
+    "HTML": {
+      "format_on_save": "off"
+    },
     "JavaScript": {
       "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true
-        }
+        "external": { "command": "jsfmt", "arguments": ["{buffer_path}"] }
       },
       "language_servers": ["eslint", "typos"]
     },
@@ -46,6 +47,16 @@
         "!tailwindcss-language-server",
         "typos"
       ]
+    },
+    "TSX": {
+      "formatter": {
+        "external": { "command": "jsfmt", "arguments": ["{buffer_path}"] }
+      }
+    },
+    "TypeScript": {
+      "formatter": {
+        "external": { "command": "jsfmt", "arguments": ["{buffer_path}"] }
+      }
     }
   },
 
