@@ -248,28 +248,25 @@ function forever {
 # and to delete them
 # ps -ef | grep KEYWORD | grep -v grep | awk '{print $2}' | xargs kill -9
 function grep_kill {
-  ps -ef | grep "$1" | grep -v grep | awk '{print $2}' | xargs kill -9
+  ps -ef | grep "$1" | grep -v grep | awk '{print $2}' | xargs kill -9;
 }
 
 function find_port {
   netstat -vanp tcp | grep -E "(pid|$1)"
 }
 
-function m { main "$@" }
+function m { main "$@"; }
 function main {
   ruby -e '
     # -------- commands --------
 
     def prs
-      teammates = %w(alexandervalencia bweave dannydb JoshCNelson soberstadt)
-      author_predicates = teammates.map { |t| "author%3A#{t}" }.join("+")
-
       chrome \
-        "https://github.com/search\\?q\\=user%3Aplanningcenter+is%3Apr+#{author_predicates}+state%3Aopen\\&type\\=pullrequests\\&ref\\=advsearch\\&s\\=created\\&o\\=desc",
-        "https://github.com/pulls",
-        "https://github.com/planningcenter/publishing/pulls",
-        "https://github.com/planningcenter/church-center/pulls",
-        "https://github.com/planningcenter/ChurchCenterApp/pulls"
+        "https://github.com/planningcenter/api/pulls",
+        "https://github.com/planningcenter/pco-api/pulls",
+        "https://github.com/planningcenter/pco-api-engine/pulls",
+        "https://github.com/planningcenter/webhooks/pulls",
+        "https://github.com/pulls"
     end
 
     def search(location, *args)
