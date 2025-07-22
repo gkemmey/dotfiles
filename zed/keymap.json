@@ -16,9 +16,10 @@
   {
     "context": "Editor",
     "bindings": {
-      "cmd-y": "editor::Redo",
       "alt-up": "editor::SelectLargerSyntaxNode",
       "alt-down": "editor::SelectSmallerSyntaxNode",
+      "cmd-y": "editor::Redo",
+      "cmd-shift-l": "editor::SplitSelectionIntoLines",
       "ctrl-cmd-up": "editor::MoveLineUp",
       "ctrl-cmd-down": "editor::MoveLineDown"
     }
