@@ -1,0 +1,7 @@
+font-family = Monego Nerd Font Fix
+font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = transparent
+theme = AtomOneLight

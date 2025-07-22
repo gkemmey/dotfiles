@@ -90,6 +90,8 @@ command :install do |c|
     dots.link "bash/.bash_profile", to: ".bash_profile"
     dots.link "bash/.bashrc", to: ".bashrc"
 
+    dots.link "ghostty/config", to: ".config/ghostty/config"
+
     dots.link "git/.gitconfig", to: ".gitconfig"
 
     dots.link "ruby/.irbrc", to: ".irbrc"
