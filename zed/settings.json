@@ -6,7 +6,25 @@
 // To see all of Zed's default settings without changing your
 // custom settings, run the `zed: Open Default Settings` command
 // from the command palette
+
 {
+  "agent": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-7-sonnet-thinking"
+    },
+    "always_allow_tool_actions": true,
+    "model_parameters": [],
+    "default_profile": "ask",
+    "version": "2"
+  },
+  "agent_font_family": "Monego Nerd Font Fix",
+  "agent_font_features": {
+    "calt": false
+  },
+  "agent_font_size": 13,
+
+  "auto_fold_dirs": false,
   "buffer_font_family": "Monego Nerd Font Fix",
   "buffer_font_features": {
     "calt": false
@@ -16,13 +34,21 @@
 
   "double_click_in_multibuffer": "open",
 
+  "edit_predictions": {
+    "disabled_globs": ["**/*"]
+  },
+
   "format_on_save": "on",
 
   "inlay_hints": {
     "enabled": false,
     "show_type_hints": true,
     "show_parameter_hints": true,
-    "show_other_hints": true
+    "show_other_hints": true,
+    "show_background": false,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50,
+    "toggle_on_modifiers_press": null
   },
 
   "languages": {
@@ -134,7 +160,25 @@
     "enable_preview_from_code_navigation": false
   },
 
+  "project_panel": {
+    "auto_reveal_entries": false
+  },
+
   "projects_online_by_default": false,
+
+  "scrollbar": {
+    "show": "auto",
+    "cursors": false,
+    "git_diff": true,
+    "search_results": false,
+    "selected_text": false,
+    "selected_symbol": false,
+    "diagnostics": "none",
+    "axes": {
+      "horizontal": true,
+      "vertical": true
+    }
+  },
 
   "scroll_beyond_last_line": "off",
 
@@ -144,6 +188,8 @@
     "include_ignored": false,
     "regex": true
   },
+
+  "show_edit_predictions": false,
 
   "show_nav_history_buttons": false,
 
@@ -159,11 +205,13 @@
     "metrics": false
   },
 
-  "terminal_font_family": "Monego Nerd Font Fix",
-  "terminal_font_features": {
-    "calt": false
+  "terminal": {
+    "font_family": "Monego Nerd Font Fix",
+    "font_features": {
+      "calt": false
+    },
+    "font_size": 11
   },
-  "terminal_font_size": 11,
 
   "theme": {
     "mode": "system",
@@ -176,6 +224,8 @@
     "calt": false
   },
   "ui_font_size": 13,
+
+  "use_autoclose": false,
 
   "wrap_guides": [80, 100]
 }
