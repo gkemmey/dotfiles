@@ -156,6 +156,13 @@ function clean_branches {
   git branch -r | awk '{ print $1 }'| egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{ print $1 }' | xargs git branch -d
 }
 
+function gsm {
+  gfo && gco $1 && git pull origin $1 && gco staging && git merge $1
+}
+
+alias grbi_sinful="git -c 'rebase.instructionFormat=%s%nexec GIT_COMMITTER_DATE=\"%cI\" GIT_COMMITTER_NAME=\"%cN\" GIT_COMMITTER_EMAIL=\"%cE\" git commit --amend --no-edit%n' rebase -i"
+alias grbi_reset="git rebase --reset-author-date --committer-date-is-author-date -i"
+
 # -------- jekyll --------
 alias js='bundle exec jekyll serve'
 
