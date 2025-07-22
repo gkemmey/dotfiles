@@ -1,21 +1,39 @@
+# ref: https://blog.gitbutler.com/how-git-core-devs-configure-git/
+#
+# deviations:
+#   - i don't like `column.ui auto`
+#   - `pull.rebase true` is insane; use `pull.ff only` instead
+
+[branch]
+  sort = -committerdate
 [color]
 	ui = true
-[user]
-	name = gkemmey
-	email = gray.kemmey@gmail.com
+[commit]
+	verbose = true
 [core]
 	editor = zed -n -w
 	commentChar = "#"
-[pull]
-	ff = only
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+	smudge = git-lfs smudge -- %f
 [merge]
 	conflictStyle = zdiff3
-[commit]
-	verbose = true
+[pull]
+	ff = only
 [rebase]
-	autosquash = true
+	autoSquash = true
+	autoStash = true
+  updateRefs = true
+[rerere]
+  autoupdate = true
+  enabled = true
+[user]
+	email = gray.kemmey@gmail.com
+	name = gkemmey
