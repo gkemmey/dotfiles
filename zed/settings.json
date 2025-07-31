@@ -15,16 +15,14 @@
     },
     "always_allow_tool_actions": true,
     "model_parameters": [],
-    "default_profile": "ask",
-    "version": "2"
-  },
-  "agent_font_family": "Monego Nerd Font Fix",
-  "agent_font_features": {
-    "calt": false
+    "default_profile": "ask"
   },
   "agent_font_size": 13,
 
   "auto_fold_dirs": false,
+
+  "base_keymap": "VSCode",
+
   "buffer_font_family": "Monego Nerd Font Fix",
   "buffer_font_features": {
     "calt": false
@@ -161,6 +159,7 @@
   },
 
   "project_panel": {
+    "dock": "left",
     "auto_reveal_entries": false
   },
 

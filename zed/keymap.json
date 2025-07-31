@@ -7,21 +7,56 @@
 // from the command palette.
 [
   {
+    "bindings": {
+      // TODO: i'd rather these cycle through all panes but they don't
+      "alt-}": "workspace::ActivateNextPane",
+      "alt-{": "workspace::ActivatePreviousPane",
+
+      "ctrl-left": "workspace::ActivatePaneLeft",
+      "ctrl-right": "workspace::ActivatePaneRight",
+      "ctrl-up": "workspace::ActivatePaneUp",
+      "ctrl-down": "workspace::ActivatePaneDown"
+    }
+  },
+
+  {
     "context": "Workspace",
     "bindings": {
+      "cmd-k s": "workspace::SaveWithoutFormat",
+      "cmd-k cmd-s": "workspace::SaveWithoutFormat",
+
+      "ctrl-space c d": "workspace::CloseAllDocks",
+      "ctrl-space c c": "workspace::CloseAllItemsAndPanes",
+      "ctrl-space c o": "pane::CloseOtherItems",
+
+      "ctrl-space d left": "workspace::ToggleLeftDock",
+      "ctrl-space d down": "workspace::ToggleBottomDock",
+      "ctrl-space d right": "workspace::ToggleRightDock",
+
+      "ctrl-space o e": "project_panel::ToggleFocus",
+      "ctrl-space o a": "agent::ToggleFocus",
+      "ctrl-space o o": "outline_panel::ToggleFocus",
+      "ctrl-space o t": "terminal_panel::ToggleFocus",
+
       "ctrl-space s |": "pane::SplitRight",
       "ctrl-space s -": "pane::SplitDown"
     }
   },
+
   {
     "context": "Editor",
     "bindings": {
       "alt-up": "editor::SelectLargerSyntaxNode",
       "alt-down": "editor::SelectSmallerSyntaxNode",
+
       "cmd-y": "editor::Redo",
+
       "cmd-shift-l": "editor::SplitSelectionIntoLines",
+
       "ctrl-cmd-up": "editor::MoveLineUp",
-      "ctrl-cmd-down": "editor::MoveLineDown"
+      "ctrl-cmd-down": "editor::MoveLineDown",
+
+      "ctrl-space o e": "pane::RevealInProjectPanel"
     }
   }
 ]
